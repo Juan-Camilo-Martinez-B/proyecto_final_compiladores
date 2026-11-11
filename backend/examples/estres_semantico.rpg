@@ -1,0 +1,22 @@
+// Prueba de estrés del analizador semántico
+int vida = 100;
+str hechizo = "Fuego";
+float escudo = 2.5;
+int vida = 50;
+vida = vida - hechizo;
+int poder = escudo;
+bool vivo = vida;
+func curar(int cantidad) -> int {
+    int vida = cantidad * 2;
+    return "mucho";
+}
+curar(10, 20);
+curar(hechizo);
+if (vida) {
+    int temporal = 1;
+}
+print(temporal);
+print(mana);
+return 5;
+hechizo();
+int total = !vida;
