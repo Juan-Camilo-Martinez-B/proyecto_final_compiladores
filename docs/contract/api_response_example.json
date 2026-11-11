@@ -1,0 +1,94 @@
+{
+  "success": true,
+  "status": {
+    "tokens": "ok",
+    "ast": "ok",
+    "symbols": "ok",
+    "memory": "ok",
+    "ir": "ok",
+    "assembly": "ok"
+  },
+  "diagnostics": [
+    { "phase": "semantico", "severity": "warning", "message": "'vida' oculta a la variable declarada en el ámbito 'global'.", "line": 10, "column": 9 }
+  ],
+  "phases": {
+    "tokens": [
+      { "type": "TYPE", "lexeme": "int", "line": 2, "column": 1 },
+      { "type": "IDENTIFIER", "lexeme": "vida", "line": 2, "column": 5 },
+      { "type": "ASSIGN", "lexeme": "=", "line": 2, "column": 10 },
+      { "type": "INT_LITERAL", "lexeme": "100", "line": 2, "column": 12 },
+      { "type": "SEMICOLON", "lexeme": ";", "line": 2, "column": 15 },
+      { "type": "EOF", "lexeme": "", "line": 3, "column": 1 }
+    ],
+    "ast": {
+      "node": "Program", "line": 1, "column": 1,
+      "statements": [
+        {
+          "node": "VarDecl", "line": 2, "column": 1, "type_name": "int", "name": "vida",
+          "initializer": { "node": "Literal", "line": 2, "column": 12, "inferred_type": "int", "value": 100, "type_name": "int" }
+        }
+      ]
+    },
+    "symbols": {
+      "scopes": [
+        {
+          "name": "global", "level": 0, "parent": null,
+          "symbols": [
+            { "name": "vida", "type": "int", "kind": "variable", "scope": "global", "level": 0, "line": 2, "params": null, "return_type": null },
+            { "name": "calcular_dano", "type": "float", "kind": "function", "scope": "global", "level": 0, "line": 7, "params": ["int", "float"], "return_type": "float" }
+          ]
+        },
+        {
+          "name": "func:calcular_dano", "level": 1, "parent": "global",
+          "symbols": [
+            { "name": "base", "type": "int", "kind": "parameter", "scope": "func:calcular_dano", "level": 1, "line": 7, "params": null, "return_type": null }
+          ]
+        }
+      ],
+      "trace": [
+        { "step": 1, "action": "define", "scope": "global", "name": "vida", "found_in": null, "line": 2 },
+        { "step": 2, "action": "enter_scope", "scope": "func:calcular_dano", "name": null, "found_in": null, "line": 7 },
+        { "step": 3, "action": "lookup", "scope": "func:calcular_dano", "name": "base", "found_in": "func:calcular_dano", "line": 8 }
+      ]
+    },
+    "memory": {
+      "globals": {
+        "size": 29,
+        "slots": [
+          { "name": "vida", "type": "int", "kind": "variable", "offset": 0, "size": 4 },
+          { "name": "multiplicador", "type": "float", "kind": "variable", "offset": 4, "size": 8 }
+        ]
+      },
+      "frames": [
+        {
+          "function": "calcular_dano", "size": 28,
+          "slots": [
+            { "name": "return_address", "type": null, "kind": "control", "offset": 0, "size": 4 },
+            { "name": "saved_fp", "type": null, "kind": "control", "offset": 4, "size": 4 },
+            { "name": "base", "type": "int", "kind": "parameter", "offset": 8, "size": 4 },
+            { "name": "factor", "type": "float", "kind": "parameter", "offset": 12, "size": 8 },
+            { "name": "dano", "type": "float", "kind": "variable", "offset": 20, "size": 8 }
+          ]
+        }
+      ],
+      "heap": [
+        { "address": "0x1000", "value": "Aria", "size": 5 }
+      ]
+    },
+    "ir": [
+      { "index": 0, "op": "func_begin", "arg1": "calcular_dano", "arg2": null, "result": null, "text": "func_begin calcular_dano" },
+      { "index": 1, "op": "int_to_float", "arg1": "base", "arg2": null, "result": "t1", "text": "t1 = int_to_float base" },
+      { "index": 2, "op": "*", "arg1": "t1", "arg2": "factor", "result": "t2", "text": "t2 = t1 * factor" }
+    ],
+    "assembly": {
+      "register_count": 4,
+      "instructions": ["FUNC calcular_dano", "    LOAD   R0, base", "    ITOF   R0"],
+      "register_trace": [
+        { "instruction": 0, "registers": { "R0": null, "R1": null, "R2": null, "R3": null } },
+        { "instruction": 1, "registers": { "R0": "base", "R1": null, "R2": null, "R3": null } },
+        { "instruction": 2, "registers": { "R0": "t1", "R1": null, "R2": null, "R3": null } }
+      ],
+      "spills": []
+    }
+  }
+}

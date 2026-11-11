@@ -1,0 +1,30 @@
+// Simulación de combate: programa correcto
+int vida = 100;
+float multiplicador = 1.5;
+str heroe = "Aria";
+bool vivo = true;
+
+func calcular_dano(int base, float factor) -> float {
+    float dano = base * factor;
+    if (dano > 50.0) {
+        dano = 50.0;
+    }
+    return dano;
+}
+
+func recibir_golpe(int actual, int golpe) -> int {
+    int restante = actual - golpe;
+    if (restante < 0) {
+        restante = 0;
+    } else {
+        print("Resiste el golpe");
+    }
+    return restante;
+}
+
+float golpe = calcular_dano(40, multiplicador);
+vida = recibir_golpe(vida, 35);
+vivo = vida > 0 && vivo;
+print(heroe + " sigue en pie");
+print(vida);
+print(golpe);
