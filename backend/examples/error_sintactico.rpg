@@ -1,0 +1,7 @@
+int vida = 100
+func atacar(int dano -> int {
+    return vida - dano;
+}
+if (vida > 0 {
+    print(vida);
+}
