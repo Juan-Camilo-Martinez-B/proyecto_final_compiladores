@@ -4,9 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RPGScript Compiler</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
 </head>
 <body>
-  <h1>RPGScript Compiler</h1>
-  <p>Vista web en construcción.</p>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◆</span>
+      <h1>RPGScript Compiler</h1>
+      <span id="summary" class="summary" role="status"></span>
+    </div>
+    <nav id="pipeline" class="pipeline" aria-label="Fases del pipeline"></nav>
+  </header>
+
+  <main class="workspace">
+    <section class="panel editor-panel" aria-label="Editor">
+      <div class="toolbar">
+        <label class="field">
+          <span>Ejemplo</span>
+          <select id="examples"><option value="">(cargando…)</option></select>
+        </label>
+        <label class="field">
+          <span>Registros</span>
+          <select id="registers"></select>
+        </label>
+        <button id="compile" class="btn-primary" type="button" title="Ctrl + Enter">Compilar</button>
+      </div>
+      <div class="editor">
+        <div id="gutter" class="gutter" aria-hidden="true"></div>
+        <textarea id="source" spellcheck="false" autocomplete="off" autocapitalize="off"
+                  aria-label="Código fuente RPGScript"></textarea>
+      </div>
+      <p class="hint">Ctrl + Enter para compilar</p>
+    </section>
+
+    <section class="panel phases-panel" aria-label="Fases del compilador">
+      <div id="tabs" class="tabs" role="tablist"></div>
+      <div id="views" class="views"></div>
+    </section>
+  </main>
+
+  <footer class="panel diagnostics-panel" aria-label="Diagnósticos">
+    <div class="diagnostics-header">
+      <h2>Diagnósticos</h2>
+      <span id="diagnostics-count" class="muted"></span>
+    </div>
+    <ul id="diagnostics" class="diagnostics"></ul>
+  </footer>
 </body>
 </html>
