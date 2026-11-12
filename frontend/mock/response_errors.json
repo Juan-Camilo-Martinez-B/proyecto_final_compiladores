@@ -1,0 +1,1433 @@
+{
+  "success": false,
+  "status": {
+    "tokens": "ok",
+    "ast": "ok",
+    "symbols": "error",
+    "memory": "skipped",
+    "ir": "skipped",
+    "assembly": "skipped"
+  },
+  "diagnostics": [
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "La variable 'vida' ya fue declarada en el ámbito 'global' (línea 2).",
+      "line": 5,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "El operador '-' no está definido entre 'int' y 'str'.",
+      "line": 6,
+      "column": 13
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "No se puede asignar un valor 'float' a 'poder' de tipo 'int'.",
+      "line": 7,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "No se puede asignar un valor 'int' a 'vivo' de tipo 'bool'.",
+      "line": 8,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "warning",
+      "message": "'vida' oculta a la variable declarada en el ámbito 'global'.",
+      "line": 10,
+      "column": 5
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "'curar' debe retornar 'int', pero retorna 'str'.",
+      "line": 11,
+      "column": 5
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "La función 'curar' espera 1 argumento(s) y recibió 2.",
+      "line": 13,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "El argumento 1 de 'curar' debe ser 'int', se recibió 'str'.",
+      "line": 14,
+      "column": 7
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "La condición del 'if' debe ser 'bool', se obtuvo 'int'.",
+      "line": 15,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "La variable 'temporal' no está declarada en el ámbito 'global'.",
+      "line": 18,
+      "column": 7
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "La variable 'mana' no está declarada en el ámbito 'global'.",
+      "line": 19,
+      "column": 7
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "'return' solo se permite dentro de una función.",
+      "line": 20,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "'hechizo' no es una función.",
+      "line": 21,
+      "column": 1
+    },
+    {
+      "phase": "semantico",
+      "severity": "error",
+      "message": "El operador '!' no se puede aplicar a 'int'.",
+      "line": 22,
+      "column": 13
+    }
+  ],
+  "phases": {
+    "tokens": [
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 2,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 2,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 2,
+        "column": 10
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "100",
+        "line": 2,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 2,
+        "column": 15
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "str",
+        "line": 3,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "hechizo",
+        "line": 3,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 3,
+        "column": 13
+      },
+      {
+        "type": "STRING_LITERAL",
+        "lexeme": "\"Fuego\"",
+        "line": 3,
+        "column": 15
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 3,
+        "column": 22
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "float",
+        "line": 4,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "escudo",
+        "line": 4,
+        "column": 7
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 4,
+        "column": 14
+      },
+      {
+        "type": "FLOAT_LITERAL",
+        "lexeme": "2.5",
+        "line": 4,
+        "column": 16
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 4,
+        "column": 19
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 5,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 5,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 5,
+        "column": 10
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "50",
+        "line": 5,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 5,
+        "column": 14
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 6,
+        "column": 1
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 6,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 6,
+        "column": 8
+      },
+      {
+        "type": "MINUS",
+        "lexeme": "-",
+        "line": 6,
+        "column": 13
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "hechizo",
+        "line": 6,
+        "column": 15
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 6,
+        "column": 22
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 7,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "poder",
+        "line": 7,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 7,
+        "column": 11
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "escudo",
+        "line": 7,
+        "column": 13
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 7,
+        "column": 19
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "bool",
+        "line": 8,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vivo",
+        "line": 8,
+        "column": 6
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 8,
+        "column": 11
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 8,
+        "column": 13
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 8,
+        "column": 17
+      },
+      {
+        "type": "FUNC",
+        "lexeme": "func",
+        "line": 9,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "curar",
+        "line": 9,
+        "column": 6
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 9,
+        "column": 11
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 9,
+        "column": 12
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "cantidad",
+        "line": 9,
+        "column": 16
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 9,
+        "column": 24
+      },
+      {
+        "type": "ARROW",
+        "lexeme": "->",
+        "line": 9,
+        "column": 26
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 9,
+        "column": 29
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 9,
+        "column": 33
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 10,
+        "column": 5
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 10,
+        "column": 9
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 10,
+        "column": 14
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "cantidad",
+        "line": 10,
+        "column": 16
+      },
+      {
+        "type": "STAR",
+        "lexeme": "*",
+        "line": 10,
+        "column": 25
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "2",
+        "line": 10,
+        "column": 27
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 10,
+        "column": 28
+      },
+      {
+        "type": "RETURN",
+        "lexeme": "return",
+        "line": 11,
+        "column": 5
+      },
+      {
+        "type": "STRING_LITERAL",
+        "lexeme": "\"mucho\"",
+        "line": 11,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 11,
+        "column": 19
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 12,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "curar",
+        "line": 13,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 13,
+        "column": 6
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "10",
+        "line": 13,
+        "column": 7
+      },
+      {
+        "type": "COMMA",
+        "lexeme": ",",
+        "line": 13,
+        "column": 9
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "20",
+        "line": 13,
+        "column": 11
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 13,
+        "column": 13
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 13,
+        "column": 14
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "curar",
+        "line": 14,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 14,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "hechizo",
+        "line": 14,
+        "column": 7
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 14,
+        "column": 14
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 14,
+        "column": 15
+      },
+      {
+        "type": "IF",
+        "lexeme": "if",
+        "line": 15,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 15,
+        "column": 4
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 15,
+        "column": 5
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 15,
+        "column": 9
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 15,
+        "column": 11
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 16,
+        "column": 5
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "temporal",
+        "line": 16,
+        "column": 9
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 16,
+        "column": 18
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "1",
+        "line": 16,
+        "column": 20
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 16,
+        "column": 21
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 17,
+        "column": 1
+      },
+      {
+        "type": "PRINT",
+        "lexeme": "print",
+        "line": 18,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 18,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "temporal",
+        "line": 18,
+        "column": 7
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 18,
+        "column": 15
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 18,
+        "column": 16
+      },
+      {
+        "type": "PRINT",
+        "lexeme": "print",
+        "line": 19,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 19,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "mana",
+        "line": 19,
+        "column": 7
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 19,
+        "column": 11
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 19,
+        "column": 12
+      },
+      {
+        "type": "RETURN",
+        "lexeme": "return",
+        "line": 20,
+        "column": 1
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "5",
+        "line": 20,
+        "column": 8
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 20,
+        "column": 9
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "hechizo",
+        "line": 21,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 21,
+        "column": 8
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 21,
+        "column": 9
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 21,
+        "column": 10
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 22,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "total",
+        "line": 22,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 22,
+        "column": 11
+      },
+      {
+        "type": "NOT",
+        "lexeme": "!",
+        "line": 22,
+        "column": 13
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 22,
+        "column": 14
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 22,
+        "column": 18
+      },
+      {
+        "type": "EOF",
+        "lexeme": "",
+        "line": 23,
+        "column": 1
+      }
+    ],
+    "ast": {
+      "node": "Program",
+      "line": 1,
+      "column": 1,
+      "statements": [
+        {
+          "node": "VarDecl",
+          "line": 2,
+          "column": 1,
+          "type_name": "int",
+          "name": "vida",
+          "initializer": {
+            "node": "Literal",
+            "line": 2,
+            "column": 12,
+            "inferred_type": null,
+            "value": 100,
+            "type_name": "int"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 3,
+          "column": 1,
+          "type_name": "str",
+          "name": "hechizo",
+          "initializer": {
+            "node": "Literal",
+            "line": 3,
+            "column": 15,
+            "inferred_type": null,
+            "value": "Fuego",
+            "type_name": "str"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 4,
+          "column": 1,
+          "type_name": "float",
+          "name": "escudo",
+          "initializer": {
+            "node": "Literal",
+            "line": 4,
+            "column": 16,
+            "inferred_type": null,
+            "value": 2.5,
+            "type_name": "float"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 5,
+          "column": 1,
+          "type_name": "int",
+          "name": "vida",
+          "initializer": {
+            "node": "Literal",
+            "line": 5,
+            "column": 12,
+            "inferred_type": null,
+            "value": 50,
+            "type_name": "int"
+          }
+        },
+        {
+          "node": "Assign",
+          "line": 6,
+          "column": 1,
+          "name": "vida",
+          "value": {
+            "node": "BinaryOp",
+            "line": 6,
+            "column": 13,
+            "inferred_type": null,
+            "operator": "-",
+            "left": {
+              "node": "Identifier",
+              "line": 6,
+              "column": 8,
+              "inferred_type": null,
+              "name": "vida"
+            },
+            "right": {
+              "node": "Identifier",
+              "line": 6,
+              "column": 15,
+              "inferred_type": null,
+              "name": "hechizo"
+            }
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 7,
+          "column": 1,
+          "type_name": "int",
+          "name": "poder",
+          "initializer": {
+            "node": "Identifier",
+            "line": 7,
+            "column": 13,
+            "inferred_type": null,
+            "name": "escudo"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 8,
+          "column": 1,
+          "type_name": "bool",
+          "name": "vivo",
+          "initializer": {
+            "node": "Identifier",
+            "line": 8,
+            "column": 13,
+            "inferred_type": null,
+            "name": "vida"
+          }
+        },
+        {
+          "node": "FuncDecl",
+          "line": 9,
+          "column": 1,
+          "name": "curar",
+          "params": [
+            {
+              "node": "Param",
+              "line": 9,
+              "column": 12,
+              "type_name": "int",
+              "name": "cantidad"
+            }
+          ],
+          "return_type": "int",
+          "body": {
+            "node": "Block",
+            "line": 9,
+            "column": 33,
+            "statements": [
+              {
+                "node": "VarDecl",
+                "line": 10,
+                "column": 5,
+                "type_name": "int",
+                "name": "vida",
+                "initializer": {
+                  "node": "BinaryOp",
+                  "line": 10,
+                  "column": 25,
+                  "inferred_type": null,
+                  "operator": "*",
+                  "left": {
+                    "node": "Identifier",
+                    "line": 10,
+                    "column": 16,
+                    "inferred_type": null,
+                    "name": "cantidad"
+                  },
+                  "right": {
+                    "node": "Literal",
+                    "line": 10,
+                    "column": 27,
+                    "inferred_type": null,
+                    "value": 2,
+                    "type_name": "int"
+                  }
+                }
+              },
+              {
+                "node": "Return",
+                "line": 11,
+                "column": 5,
+                "value": {
+                  "node": "Literal",
+                  "line": 11,
+                  "column": 12,
+                  "inferred_type": null,
+                  "value": "mucho",
+                  "type_name": "str"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": "ExprStmt",
+          "line": 13,
+          "column": 1,
+          "expression": {
+            "node": "Call",
+            "line": 13,
+            "column": 1,
+            "inferred_type": null,
+            "callee": "curar",
+            "arguments": [
+              {
+                "node": "Literal",
+                "line": 13,
+                "column": 7,
+                "inferred_type": null,
+                "value": 10,
+                "type_name": "int"
+              },
+              {
+                "node": "Literal",
+                "line": 13,
+                "column": 11,
+                "inferred_type": null,
+                "value": 20,
+                "type_name": "int"
+              }
+            ]
+          }
+        },
+        {
+          "node": "ExprStmt",
+          "line": 14,
+          "column": 1,
+          "expression": {
+            "node": "Call",
+            "line": 14,
+            "column": 1,
+            "inferred_type": null,
+            "callee": "curar",
+            "arguments": [
+              {
+                "node": "Identifier",
+                "line": 14,
+                "column": 7,
+                "inferred_type": null,
+                "name": "hechizo"
+              }
+            ]
+          }
+        },
+        {
+          "node": "If",
+          "line": 15,
+          "column": 1,
+          "condition": {
+            "node": "Identifier",
+            "line": 15,
+            "column": 5,
+            "inferred_type": null,
+            "name": "vida"
+          },
+          "then_block": {
+            "node": "Block",
+            "line": 15,
+            "column": 11,
+            "statements": [
+              {
+                "node": "VarDecl",
+                "line": 16,
+                "column": 5,
+                "type_name": "int",
+                "name": "temporal",
+                "initializer": {
+                  "node": "Literal",
+                  "line": 16,
+                  "column": 20,
+                  "inferred_type": null,
+                  "value": 1,
+                  "type_name": "int"
+                }
+              }
+            ]
+          },
+          "else_block": null
+        },
+        {
+          "node": "Print",
+          "line": 18,
+          "column": 1,
+          "value": {
+            "node": "Identifier",
+            "line": 18,
+            "column": 7,
+            "inferred_type": null,
+            "name": "temporal"
+          }
+        },
+        {
+          "node": "Print",
+          "line": 19,
+          "column": 1,
+          "value": {
+            "node": "Identifier",
+            "line": 19,
+            "column": 7,
+            "inferred_type": null,
+            "name": "mana"
+          }
+        },
+        {
+          "node": "Return",
+          "line": 20,
+          "column": 1,
+          "value": {
+            "node": "Literal",
+            "line": 20,
+            "column": 8,
+            "inferred_type": null,
+            "value": 5,
+            "type_name": "int"
+          }
+        },
+        {
+          "node": "ExprStmt",
+          "line": 21,
+          "column": 1,
+          "expression": {
+            "node": "Call",
+            "line": 21,
+            "column": 1,
+            "inferred_type": null,
+            "callee": "hechizo",
+            "arguments": []
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 22,
+          "column": 1,
+          "type_name": "int",
+          "name": "total",
+          "initializer": {
+            "node": "UnaryOp",
+            "line": 22,
+            "column": 13,
+            "inferred_type": null,
+            "operator": "!",
+            "operand": {
+              "node": "Identifier",
+              "line": 22,
+              "column": 14,
+              "inferred_type": null,
+              "name": "vida"
+            }
+          }
+        }
+      ]
+    },
+    "symbols": {
+      "scopes": [
+        {
+          "name": "global",
+          "level": 0,
+          "parent": null,
+          "symbols": [
+            {
+              "name": "vida",
+              "type": "int",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 2,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "hechizo",
+              "type": "str",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 3,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "escudo",
+              "type": "float",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 4,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "poder",
+              "type": "int",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 7,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "vivo",
+              "type": "bool",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 8,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "curar",
+              "type": "int",
+              "kind": "function",
+              "scope": "global",
+              "level": 0,
+              "line": 9,
+              "params": [
+                "int"
+              ],
+              "return_type": "int"
+            },
+            {
+              "name": "total",
+              "type": "int",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 22,
+              "params": null,
+              "return_type": null
+            }
+          ]
+        },
+        {
+          "name": "func:curar",
+          "level": 1,
+          "parent": "global",
+          "symbols": [
+            {
+              "name": "cantidad",
+              "type": "int",
+              "kind": "parameter",
+              "scope": "func:curar",
+              "level": 1,
+              "line": 9,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "vida",
+              "type": "int",
+              "kind": "variable",
+              "scope": "func:curar",
+              "level": 1,
+              "line": 10,
+              "params": null,
+              "return_type": null
+            }
+          ]
+        },
+        {
+          "name": "if@15",
+          "level": 1,
+          "parent": "global",
+          "symbols": [
+            {
+              "name": "temporal",
+              "type": "int",
+              "kind": "variable",
+              "scope": "if@15",
+              "level": 1,
+              "line": 16,
+              "params": null,
+              "return_type": null
+            }
+          ]
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "action": "define",
+          "scope": "global",
+          "name": "curar",
+          "found_in": null,
+          "line": 9
+        },
+        {
+          "step": 2,
+          "action": "define",
+          "scope": "global",
+          "name": "vida",
+          "found_in": null,
+          "line": 2
+        },
+        {
+          "step": 3,
+          "action": "define",
+          "scope": "global",
+          "name": "hechizo",
+          "found_in": null,
+          "line": 3
+        },
+        {
+          "step": 4,
+          "action": "define",
+          "scope": "global",
+          "name": "escudo",
+          "found_in": null,
+          "line": 4
+        },
+        {
+          "step": 5,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 6
+        },
+        {
+          "step": 6,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 6
+        },
+        {
+          "step": 7,
+          "action": "lookup",
+          "scope": "global",
+          "name": "hechizo",
+          "found_in": "global",
+          "line": 6
+        },
+        {
+          "step": 8,
+          "action": "lookup",
+          "scope": "global",
+          "name": "escudo",
+          "found_in": "global",
+          "line": 7
+        },
+        {
+          "step": 9,
+          "action": "define",
+          "scope": "global",
+          "name": "poder",
+          "found_in": null,
+          "line": 7
+        },
+        {
+          "step": 10,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 8
+        },
+        {
+          "step": 11,
+          "action": "define",
+          "scope": "global",
+          "name": "vivo",
+          "found_in": null,
+          "line": 8
+        },
+        {
+          "step": 12,
+          "action": "enter_scope",
+          "scope": "func:curar",
+          "name": null,
+          "found_in": null,
+          "line": 9
+        },
+        {
+          "step": 13,
+          "action": "define",
+          "scope": "func:curar",
+          "name": "cantidad",
+          "found_in": null,
+          "line": 9
+        },
+        {
+          "step": 14,
+          "action": "lookup",
+          "scope": "func:curar",
+          "name": "cantidad",
+          "found_in": "func:curar",
+          "line": 10
+        },
+        {
+          "step": 15,
+          "action": "define",
+          "scope": "func:curar",
+          "name": "vida",
+          "found_in": null,
+          "line": 10
+        },
+        {
+          "step": 16,
+          "action": "exit_scope",
+          "scope": "func:curar",
+          "name": null,
+          "found_in": null,
+          "line": 9
+        },
+        {
+          "step": 17,
+          "action": "lookup",
+          "scope": "global",
+          "name": "curar",
+          "found_in": "global",
+          "line": 13
+        },
+        {
+          "step": 18,
+          "action": "lookup",
+          "scope": "global",
+          "name": "curar",
+          "found_in": "global",
+          "line": 14
+        },
+        {
+          "step": 19,
+          "action": "lookup",
+          "scope": "global",
+          "name": "hechizo",
+          "found_in": "global",
+          "line": 14
+        },
+        {
+          "step": 20,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 15
+        },
+        {
+          "step": 21,
+          "action": "enter_scope",
+          "scope": "if@15",
+          "name": null,
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 22,
+          "action": "define",
+          "scope": "if@15",
+          "name": "temporal",
+          "found_in": null,
+          "line": 16
+        },
+        {
+          "step": 23,
+          "action": "exit_scope",
+          "scope": "if@15",
+          "name": null,
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 24,
+          "action": "lookup",
+          "scope": "global",
+          "name": "temporal",
+          "found_in": null,
+          "line": 18
+        },
+        {
+          "step": 25,
+          "action": "lookup",
+          "scope": "global",
+          "name": "mana",
+          "found_in": null,
+          "line": 19
+        },
+        {
+          "step": 26,
+          "action": "lookup",
+          "scope": "global",
+          "name": "hechizo",
+          "found_in": "global",
+          "line": 21
+        },
+        {
+          "step": 27,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 22
+        },
+        {
+          "step": 28,
+          "action": "define",
+          "scope": "global",
+          "name": "total",
+          "found_in": null,
+          "line": 22
+        }
+      ]
+    },
+    "memory": null,
+    "ir": null,
+    "assembly": null
+  }
+}

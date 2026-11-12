@@ -1,0 +1,3134 @@
+{
+  "success": true,
+  "status": {
+    "tokens": "ok",
+    "ast": "ok",
+    "symbols": "ok",
+    "memory": "ok",
+    "ir": "ok",
+    "assembly": "ok"
+  },
+  "diagnostics": [],
+  "phases": {
+    "tokens": [
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 2,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 2,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 2,
+        "column": 10
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "100",
+        "line": 2,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 2,
+        "column": 15
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "float",
+        "line": 3,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "multiplicador",
+        "line": 3,
+        "column": 7
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 3,
+        "column": 21
+      },
+      {
+        "type": "FLOAT_LITERAL",
+        "lexeme": "1.5",
+        "line": 3,
+        "column": 23
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 3,
+        "column": 26
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "str",
+        "line": 4,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "heroe",
+        "line": 4,
+        "column": 5
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 4,
+        "column": 11
+      },
+      {
+        "type": "STRING_LITERAL",
+        "lexeme": "\"Aria\"",
+        "line": 4,
+        "column": 13
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 4,
+        "column": 19
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "bool",
+        "line": 5,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vivo",
+        "line": 5,
+        "column": 6
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 5,
+        "column": 11
+      },
+      {
+        "type": "TRUE",
+        "lexeme": "true",
+        "line": 5,
+        "column": 13
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 5,
+        "column": 17
+      },
+      {
+        "type": "FUNC",
+        "lexeme": "func",
+        "line": 7,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "calcular_dano",
+        "line": 7,
+        "column": 6
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 7,
+        "column": 19
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 7,
+        "column": 20
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "base",
+        "line": 7,
+        "column": 24
+      },
+      {
+        "type": "COMMA",
+        "lexeme": ",",
+        "line": 7,
+        "column": 28
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "float",
+        "line": 7,
+        "column": 30
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "factor",
+        "line": 7,
+        "column": 36
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 7,
+        "column": 42
+      },
+      {
+        "type": "ARROW",
+        "lexeme": "->",
+        "line": 7,
+        "column": 44
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "float",
+        "line": 7,
+        "column": 47
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 7,
+        "column": 53
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "float",
+        "line": 8,
+        "column": 5
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "dano",
+        "line": 8,
+        "column": 11
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 8,
+        "column": 16
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "base",
+        "line": 8,
+        "column": 18
+      },
+      {
+        "type": "STAR",
+        "lexeme": "*",
+        "line": 8,
+        "column": 23
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "factor",
+        "line": 8,
+        "column": 25
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 8,
+        "column": 31
+      },
+      {
+        "type": "IF",
+        "lexeme": "if",
+        "line": 9,
+        "column": 5
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 9,
+        "column": 8
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "dano",
+        "line": 9,
+        "column": 9
+      },
+      {
+        "type": "GT",
+        "lexeme": ">",
+        "line": 9,
+        "column": 14
+      },
+      {
+        "type": "FLOAT_LITERAL",
+        "lexeme": "50.0",
+        "line": 9,
+        "column": 16
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 9,
+        "column": 20
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 9,
+        "column": 22
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "dano",
+        "line": 10,
+        "column": 9
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 10,
+        "column": 14
+      },
+      {
+        "type": "FLOAT_LITERAL",
+        "lexeme": "50.0",
+        "line": 10,
+        "column": 16
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 10,
+        "column": 20
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 11,
+        "column": 5
+      },
+      {
+        "type": "RETURN",
+        "lexeme": "return",
+        "line": 12,
+        "column": 5
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "dano",
+        "line": 12,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 12,
+        "column": 16
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 13,
+        "column": 1
+      },
+      {
+        "type": "FUNC",
+        "lexeme": "func",
+        "line": 15,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "recibir_golpe",
+        "line": 15,
+        "column": 6
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 15,
+        "column": 19
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 15,
+        "column": 20
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "actual",
+        "line": 15,
+        "column": 24
+      },
+      {
+        "type": "COMMA",
+        "lexeme": ",",
+        "line": 15,
+        "column": 30
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 15,
+        "column": 32
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "golpe",
+        "line": 15,
+        "column": 36
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 15,
+        "column": 41
+      },
+      {
+        "type": "ARROW",
+        "lexeme": "->",
+        "line": 15,
+        "column": 43
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 15,
+        "column": 46
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 15,
+        "column": 50
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "int",
+        "line": 16,
+        "column": 5
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "restante",
+        "line": 16,
+        "column": 9
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 16,
+        "column": 18
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "actual",
+        "line": 16,
+        "column": 20
+      },
+      {
+        "type": "MINUS",
+        "lexeme": "-",
+        "line": 16,
+        "column": 27
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "golpe",
+        "line": 16,
+        "column": 29
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 16,
+        "column": 34
+      },
+      {
+        "type": "IF",
+        "lexeme": "if",
+        "line": 17,
+        "column": 5
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 17,
+        "column": 8
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "restante",
+        "line": 17,
+        "column": 9
+      },
+      {
+        "type": "LT",
+        "lexeme": "<",
+        "line": 17,
+        "column": 18
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "0",
+        "line": 17,
+        "column": 20
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 17,
+        "column": 21
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 17,
+        "column": 23
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "restante",
+        "line": 18,
+        "column": 9
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 18,
+        "column": 18
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "0",
+        "line": 18,
+        "column": 20
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 18,
+        "column": 21
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 19,
+        "column": 5
+      },
+      {
+        "type": "ELSE",
+        "lexeme": "else",
+        "line": 19,
+        "column": 7
+      },
+      {
+        "type": "LBRACE",
+        "lexeme": "{",
+        "line": 19,
+        "column": 12
+      },
+      {
+        "type": "PRINT",
+        "lexeme": "print",
+        "line": 20,
+        "column": 9
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 20,
+        "column": 14
+      },
+      {
+        "type": "STRING_LITERAL",
+        "lexeme": "\"Resiste el golpe\"",
+        "line": 20,
+        "column": 15
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 20,
+        "column": 33
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 20,
+        "column": 34
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 21,
+        "column": 5
+      },
+      {
+        "type": "RETURN",
+        "lexeme": "return",
+        "line": 22,
+        "column": 5
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "restante",
+        "line": 22,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 22,
+        "column": 20
+      },
+      {
+        "type": "RBRACE",
+        "lexeme": "}",
+        "line": 23,
+        "column": 1
+      },
+      {
+        "type": "TYPE",
+        "lexeme": "float",
+        "line": 25,
+        "column": 1
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "golpe",
+        "line": 25,
+        "column": 7
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 25,
+        "column": 13
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "calcular_dano",
+        "line": 25,
+        "column": 15
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 25,
+        "column": 28
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "40",
+        "line": 25,
+        "column": 29
+      },
+      {
+        "type": "COMMA",
+        "lexeme": ",",
+        "line": 25,
+        "column": 31
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "multiplicador",
+        "line": 25,
+        "column": 33
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 25,
+        "column": 46
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 25,
+        "column": 47
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 26,
+        "column": 1
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 26,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "recibir_golpe",
+        "line": 26,
+        "column": 8
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 26,
+        "column": 21
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 26,
+        "column": 22
+      },
+      {
+        "type": "COMMA",
+        "lexeme": ",",
+        "line": 26,
+        "column": 26
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "35",
+        "line": 26,
+        "column": 28
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 26,
+        "column": 30
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 26,
+        "column": 31
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vivo",
+        "line": 27,
+        "column": 1
+      },
+      {
+        "type": "ASSIGN",
+        "lexeme": "=",
+        "line": 27,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 27,
+        "column": 8
+      },
+      {
+        "type": "GT",
+        "lexeme": ">",
+        "line": 27,
+        "column": 13
+      },
+      {
+        "type": "INT_LITERAL",
+        "lexeme": "0",
+        "line": 27,
+        "column": 15
+      },
+      {
+        "type": "AND",
+        "lexeme": "&&",
+        "line": 27,
+        "column": 17
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vivo",
+        "line": 27,
+        "column": 20
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 27,
+        "column": 24
+      },
+      {
+        "type": "PRINT",
+        "lexeme": "print",
+        "line": 28,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 28,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "heroe",
+        "line": 28,
+        "column": 7
+      },
+      {
+        "type": "PLUS",
+        "lexeme": "+",
+        "line": 28,
+        "column": 13
+      },
+      {
+        "type": "STRING_LITERAL",
+        "lexeme": "\" sigue en pie\"",
+        "line": 28,
+        "column": 15
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 28,
+        "column": 30
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 28,
+        "column": 31
+      },
+      {
+        "type": "PRINT",
+        "lexeme": "print",
+        "line": 29,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 29,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "vida",
+        "line": 29,
+        "column": 7
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 29,
+        "column": 11
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 29,
+        "column": 12
+      },
+      {
+        "type": "PRINT",
+        "lexeme": "print",
+        "line": 30,
+        "column": 1
+      },
+      {
+        "type": "LPAREN",
+        "lexeme": "(",
+        "line": 30,
+        "column": 6
+      },
+      {
+        "type": "IDENTIFIER",
+        "lexeme": "golpe",
+        "line": 30,
+        "column": 7
+      },
+      {
+        "type": "RPAREN",
+        "lexeme": ")",
+        "line": 30,
+        "column": 12
+      },
+      {
+        "type": "SEMICOLON",
+        "lexeme": ";",
+        "line": 30,
+        "column": 13
+      },
+      {
+        "type": "EOF",
+        "lexeme": "",
+        "line": 31,
+        "column": 1
+      }
+    ],
+    "ast": {
+      "node": "Program",
+      "line": 1,
+      "column": 1,
+      "statements": [
+        {
+          "node": "VarDecl",
+          "line": 2,
+          "column": 1,
+          "type_name": "int",
+          "name": "vida",
+          "initializer": {
+            "node": "Literal",
+            "line": 2,
+            "column": 12,
+            "inferred_type": "int",
+            "value": 100,
+            "type_name": "int"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 3,
+          "column": 1,
+          "type_name": "float",
+          "name": "multiplicador",
+          "initializer": {
+            "node": "Literal",
+            "line": 3,
+            "column": 23,
+            "inferred_type": "float",
+            "value": 1.5,
+            "type_name": "float"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 4,
+          "column": 1,
+          "type_name": "str",
+          "name": "heroe",
+          "initializer": {
+            "node": "Literal",
+            "line": 4,
+            "column": 13,
+            "inferred_type": "str",
+            "value": "Aria",
+            "type_name": "str"
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 5,
+          "column": 1,
+          "type_name": "bool",
+          "name": "vivo",
+          "initializer": {
+            "node": "Literal",
+            "line": 5,
+            "column": 13,
+            "inferred_type": "bool",
+            "value": true,
+            "type_name": "bool"
+          }
+        },
+        {
+          "node": "FuncDecl",
+          "line": 7,
+          "column": 1,
+          "name": "calcular_dano",
+          "params": [
+            {
+              "node": "Param",
+              "line": 7,
+              "column": 20,
+              "type_name": "int",
+              "name": "base"
+            },
+            {
+              "node": "Param",
+              "line": 7,
+              "column": 30,
+              "type_name": "float",
+              "name": "factor"
+            }
+          ],
+          "return_type": "float",
+          "body": {
+            "node": "Block",
+            "line": 7,
+            "column": 53,
+            "statements": [
+              {
+                "node": "VarDecl",
+                "line": 8,
+                "column": 5,
+                "type_name": "float",
+                "name": "dano",
+                "initializer": {
+                  "node": "BinaryOp",
+                  "line": 8,
+                  "column": 23,
+                  "inferred_type": "float",
+                  "operator": "*",
+                  "left": {
+                    "node": "Identifier",
+                    "line": 8,
+                    "column": 18,
+                    "inferred_type": "int",
+                    "name": "base"
+                  },
+                  "right": {
+                    "node": "Identifier",
+                    "line": 8,
+                    "column": 25,
+                    "inferred_type": "float",
+                    "name": "factor"
+                  }
+                }
+              },
+              {
+                "node": "If",
+                "line": 9,
+                "column": 5,
+                "condition": {
+                  "node": "BinaryOp",
+                  "line": 9,
+                  "column": 14,
+                  "inferred_type": "bool",
+                  "operator": ">",
+                  "left": {
+                    "node": "Identifier",
+                    "line": 9,
+                    "column": 9,
+                    "inferred_type": "float",
+                    "name": "dano"
+                  },
+                  "right": {
+                    "node": "Literal",
+                    "line": 9,
+                    "column": 16,
+                    "inferred_type": "float",
+                    "value": 50.0,
+                    "type_name": "float"
+                  }
+                },
+                "then_block": {
+                  "node": "Block",
+                  "line": 9,
+                  "column": 22,
+                  "statements": [
+                    {
+                      "node": "Assign",
+                      "line": 10,
+                      "column": 9,
+                      "name": "dano",
+                      "value": {
+                        "node": "Literal",
+                        "line": 10,
+                        "column": 16,
+                        "inferred_type": "float",
+                        "value": 50.0,
+                        "type_name": "float"
+                      }
+                    }
+                  ]
+                },
+                "else_block": null
+              },
+              {
+                "node": "Return",
+                "line": 12,
+                "column": 5,
+                "value": {
+                  "node": "Identifier",
+                  "line": 12,
+                  "column": 12,
+                  "inferred_type": "float",
+                  "name": "dano"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": "FuncDecl",
+          "line": 15,
+          "column": 1,
+          "name": "recibir_golpe",
+          "params": [
+            {
+              "node": "Param",
+              "line": 15,
+              "column": 20,
+              "type_name": "int",
+              "name": "actual"
+            },
+            {
+              "node": "Param",
+              "line": 15,
+              "column": 32,
+              "type_name": "int",
+              "name": "golpe"
+            }
+          ],
+          "return_type": "int",
+          "body": {
+            "node": "Block",
+            "line": 15,
+            "column": 50,
+            "statements": [
+              {
+                "node": "VarDecl",
+                "line": 16,
+                "column": 5,
+                "type_name": "int",
+                "name": "restante",
+                "initializer": {
+                  "node": "BinaryOp",
+                  "line": 16,
+                  "column": 27,
+                  "inferred_type": "int",
+                  "operator": "-",
+                  "left": {
+                    "node": "Identifier",
+                    "line": 16,
+                    "column": 20,
+                    "inferred_type": "int",
+                    "name": "actual"
+                  },
+                  "right": {
+                    "node": "Identifier",
+                    "line": 16,
+                    "column": 29,
+                    "inferred_type": "int",
+                    "name": "golpe"
+                  }
+                }
+              },
+              {
+                "node": "If",
+                "line": 17,
+                "column": 5,
+                "condition": {
+                  "node": "BinaryOp",
+                  "line": 17,
+                  "column": 18,
+                  "inferred_type": "bool",
+                  "operator": "<",
+                  "left": {
+                    "node": "Identifier",
+                    "line": 17,
+                    "column": 9,
+                    "inferred_type": "int",
+                    "name": "restante"
+                  },
+                  "right": {
+                    "node": "Literal",
+                    "line": 17,
+                    "column": 20,
+                    "inferred_type": "int",
+                    "value": 0,
+                    "type_name": "int"
+                  }
+                },
+                "then_block": {
+                  "node": "Block",
+                  "line": 17,
+                  "column": 23,
+                  "statements": [
+                    {
+                      "node": "Assign",
+                      "line": 18,
+                      "column": 9,
+                      "name": "restante",
+                      "value": {
+                        "node": "Literal",
+                        "line": 18,
+                        "column": 20,
+                        "inferred_type": "int",
+                        "value": 0,
+                        "type_name": "int"
+                      }
+                    }
+                  ]
+                },
+                "else_block": {
+                  "node": "Block",
+                  "line": 19,
+                  "column": 12,
+                  "statements": [
+                    {
+                      "node": "Print",
+                      "line": 20,
+                      "column": 9,
+                      "value": {
+                        "node": "Literal",
+                        "line": 20,
+                        "column": 15,
+                        "inferred_type": "str",
+                        "value": "Resiste el golpe",
+                        "type_name": "str"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "node": "Return",
+                "line": 22,
+                "column": 5,
+                "value": {
+                  "node": "Identifier",
+                  "line": 22,
+                  "column": 12,
+                  "inferred_type": "int",
+                  "name": "restante"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "node": "VarDecl",
+          "line": 25,
+          "column": 1,
+          "type_name": "float",
+          "name": "golpe",
+          "initializer": {
+            "node": "Call",
+            "line": 25,
+            "column": 15,
+            "inferred_type": "float",
+            "callee": "calcular_dano",
+            "arguments": [
+              {
+                "node": "Literal",
+                "line": 25,
+                "column": 29,
+                "inferred_type": "int",
+                "value": 40,
+                "type_name": "int"
+              },
+              {
+                "node": "Identifier",
+                "line": 25,
+                "column": 33,
+                "inferred_type": "float",
+                "name": "multiplicador"
+              }
+            ]
+          }
+        },
+        {
+          "node": "Assign",
+          "line": 26,
+          "column": 1,
+          "name": "vida",
+          "value": {
+            "node": "Call",
+            "line": 26,
+            "column": 8,
+            "inferred_type": "int",
+            "callee": "recibir_golpe",
+            "arguments": [
+              {
+                "node": "Identifier",
+                "line": 26,
+                "column": 22,
+                "inferred_type": "int",
+                "name": "vida"
+              },
+              {
+                "node": "Literal",
+                "line": 26,
+                "column": 28,
+                "inferred_type": "int",
+                "value": 35,
+                "type_name": "int"
+              }
+            ]
+          }
+        },
+        {
+          "node": "Assign",
+          "line": 27,
+          "column": 1,
+          "name": "vivo",
+          "value": {
+            "node": "BinaryOp",
+            "line": 27,
+            "column": 17,
+            "inferred_type": "bool",
+            "operator": "&&",
+            "left": {
+              "node": "BinaryOp",
+              "line": 27,
+              "column": 13,
+              "inferred_type": "bool",
+              "operator": ">",
+              "left": {
+                "node": "Identifier",
+                "line": 27,
+                "column": 8,
+                "inferred_type": "int",
+                "name": "vida"
+              },
+              "right": {
+                "node": "Literal",
+                "line": 27,
+                "column": 15,
+                "inferred_type": "int",
+                "value": 0,
+                "type_name": "int"
+              }
+            },
+            "right": {
+              "node": "Identifier",
+              "line": 27,
+              "column": 20,
+              "inferred_type": "bool",
+              "name": "vivo"
+            }
+          }
+        },
+        {
+          "node": "Print",
+          "line": 28,
+          "column": 1,
+          "value": {
+            "node": "BinaryOp",
+            "line": 28,
+            "column": 13,
+            "inferred_type": "str",
+            "operator": "+",
+            "left": {
+              "node": "Identifier",
+              "line": 28,
+              "column": 7,
+              "inferred_type": "str",
+              "name": "heroe"
+            },
+            "right": {
+              "node": "Literal",
+              "line": 28,
+              "column": 15,
+              "inferred_type": "str",
+              "value": " sigue en pie",
+              "type_name": "str"
+            }
+          }
+        },
+        {
+          "node": "Print",
+          "line": 29,
+          "column": 1,
+          "value": {
+            "node": "Identifier",
+            "line": 29,
+            "column": 7,
+            "inferred_type": "int",
+            "name": "vida"
+          }
+        },
+        {
+          "node": "Print",
+          "line": 30,
+          "column": 1,
+          "value": {
+            "node": "Identifier",
+            "line": 30,
+            "column": 7,
+            "inferred_type": "float",
+            "name": "golpe"
+          }
+        }
+      ]
+    },
+    "symbols": {
+      "scopes": [
+        {
+          "name": "global",
+          "level": 0,
+          "parent": null,
+          "symbols": [
+            {
+              "name": "vida",
+              "type": "int",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 2,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "multiplicador",
+              "type": "float",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 3,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "heroe",
+              "type": "str",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 4,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "vivo",
+              "type": "bool",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 5,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "calcular_dano",
+              "type": "float",
+              "kind": "function",
+              "scope": "global",
+              "level": 0,
+              "line": 7,
+              "params": [
+                "int",
+                "float"
+              ],
+              "return_type": "float"
+            },
+            {
+              "name": "recibir_golpe",
+              "type": "int",
+              "kind": "function",
+              "scope": "global",
+              "level": 0,
+              "line": 15,
+              "params": [
+                "int",
+                "int"
+              ],
+              "return_type": "int"
+            },
+            {
+              "name": "golpe",
+              "type": "float",
+              "kind": "variable",
+              "scope": "global",
+              "level": 0,
+              "line": 25,
+              "params": null,
+              "return_type": null
+            }
+          ]
+        },
+        {
+          "name": "func:calcular_dano",
+          "level": 1,
+          "parent": "global",
+          "symbols": [
+            {
+              "name": "base",
+              "type": "int",
+              "kind": "parameter",
+              "scope": "func:calcular_dano",
+              "level": 1,
+              "line": 7,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "factor",
+              "type": "float",
+              "kind": "parameter",
+              "scope": "func:calcular_dano",
+              "level": 1,
+              "line": 7,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "dano",
+              "type": "float",
+              "kind": "variable",
+              "scope": "func:calcular_dano",
+              "level": 1,
+              "line": 8,
+              "params": null,
+              "return_type": null
+            }
+          ]
+        },
+        {
+          "name": "if@9",
+          "level": 2,
+          "parent": "func:calcular_dano",
+          "symbols": []
+        },
+        {
+          "name": "func:recibir_golpe",
+          "level": 1,
+          "parent": "global",
+          "symbols": [
+            {
+              "name": "actual",
+              "type": "int",
+              "kind": "parameter",
+              "scope": "func:recibir_golpe",
+              "level": 1,
+              "line": 15,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "golpe",
+              "type": "int",
+              "kind": "parameter",
+              "scope": "func:recibir_golpe",
+              "level": 1,
+              "line": 15,
+              "params": null,
+              "return_type": null
+            },
+            {
+              "name": "restante",
+              "type": "int",
+              "kind": "variable",
+              "scope": "func:recibir_golpe",
+              "level": 1,
+              "line": 16,
+              "params": null,
+              "return_type": null
+            }
+          ]
+        },
+        {
+          "name": "if@17",
+          "level": 2,
+          "parent": "func:recibir_golpe",
+          "symbols": []
+        },
+        {
+          "name": "else@17",
+          "level": 2,
+          "parent": "func:recibir_golpe",
+          "symbols": []
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "action": "define",
+          "scope": "global",
+          "name": "calcular_dano",
+          "found_in": null,
+          "line": 7
+        },
+        {
+          "step": 2,
+          "action": "define",
+          "scope": "global",
+          "name": "recibir_golpe",
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 3,
+          "action": "define",
+          "scope": "global",
+          "name": "vida",
+          "found_in": null,
+          "line": 2
+        },
+        {
+          "step": 4,
+          "action": "define",
+          "scope": "global",
+          "name": "multiplicador",
+          "found_in": null,
+          "line": 3
+        },
+        {
+          "step": 5,
+          "action": "define",
+          "scope": "global",
+          "name": "heroe",
+          "found_in": null,
+          "line": 4
+        },
+        {
+          "step": 6,
+          "action": "define",
+          "scope": "global",
+          "name": "vivo",
+          "found_in": null,
+          "line": 5
+        },
+        {
+          "step": 7,
+          "action": "enter_scope",
+          "scope": "func:calcular_dano",
+          "name": null,
+          "found_in": null,
+          "line": 7
+        },
+        {
+          "step": 8,
+          "action": "define",
+          "scope": "func:calcular_dano",
+          "name": "base",
+          "found_in": null,
+          "line": 7
+        },
+        {
+          "step": 9,
+          "action": "define",
+          "scope": "func:calcular_dano",
+          "name": "factor",
+          "found_in": null,
+          "line": 7
+        },
+        {
+          "step": 10,
+          "action": "lookup",
+          "scope": "func:calcular_dano",
+          "name": "base",
+          "found_in": "func:calcular_dano",
+          "line": 8
+        },
+        {
+          "step": 11,
+          "action": "lookup",
+          "scope": "func:calcular_dano",
+          "name": "factor",
+          "found_in": "func:calcular_dano",
+          "line": 8
+        },
+        {
+          "step": 12,
+          "action": "define",
+          "scope": "func:calcular_dano",
+          "name": "dano",
+          "found_in": null,
+          "line": 8
+        },
+        {
+          "step": 13,
+          "action": "lookup",
+          "scope": "func:calcular_dano",
+          "name": "dano",
+          "found_in": "func:calcular_dano",
+          "line": 9
+        },
+        {
+          "step": 14,
+          "action": "enter_scope",
+          "scope": "if@9",
+          "name": null,
+          "found_in": null,
+          "line": 9
+        },
+        {
+          "step": 15,
+          "action": "lookup",
+          "scope": "if@9",
+          "name": "dano",
+          "found_in": "func:calcular_dano",
+          "line": 10
+        },
+        {
+          "step": 16,
+          "action": "exit_scope",
+          "scope": "if@9",
+          "name": null,
+          "found_in": null,
+          "line": 9
+        },
+        {
+          "step": 17,
+          "action": "lookup",
+          "scope": "func:calcular_dano",
+          "name": "dano",
+          "found_in": "func:calcular_dano",
+          "line": 12
+        },
+        {
+          "step": 18,
+          "action": "exit_scope",
+          "scope": "func:calcular_dano",
+          "name": null,
+          "found_in": null,
+          "line": 7
+        },
+        {
+          "step": 19,
+          "action": "enter_scope",
+          "scope": "func:recibir_golpe",
+          "name": null,
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 20,
+          "action": "define",
+          "scope": "func:recibir_golpe",
+          "name": "actual",
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 21,
+          "action": "define",
+          "scope": "func:recibir_golpe",
+          "name": "golpe",
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 22,
+          "action": "lookup",
+          "scope": "func:recibir_golpe",
+          "name": "actual",
+          "found_in": "func:recibir_golpe",
+          "line": 16
+        },
+        {
+          "step": 23,
+          "action": "lookup",
+          "scope": "func:recibir_golpe",
+          "name": "golpe",
+          "found_in": "func:recibir_golpe",
+          "line": 16
+        },
+        {
+          "step": 24,
+          "action": "define",
+          "scope": "func:recibir_golpe",
+          "name": "restante",
+          "found_in": null,
+          "line": 16
+        },
+        {
+          "step": 25,
+          "action": "lookup",
+          "scope": "func:recibir_golpe",
+          "name": "restante",
+          "found_in": "func:recibir_golpe",
+          "line": 17
+        },
+        {
+          "step": 26,
+          "action": "enter_scope",
+          "scope": "if@17",
+          "name": null,
+          "found_in": null,
+          "line": 17
+        },
+        {
+          "step": 27,
+          "action": "lookup",
+          "scope": "if@17",
+          "name": "restante",
+          "found_in": "func:recibir_golpe",
+          "line": 18
+        },
+        {
+          "step": 28,
+          "action": "exit_scope",
+          "scope": "if@17",
+          "name": null,
+          "found_in": null,
+          "line": 17
+        },
+        {
+          "step": 29,
+          "action": "enter_scope",
+          "scope": "else@17",
+          "name": null,
+          "found_in": null,
+          "line": 17
+        },
+        {
+          "step": 30,
+          "action": "exit_scope",
+          "scope": "else@17",
+          "name": null,
+          "found_in": null,
+          "line": 17
+        },
+        {
+          "step": 31,
+          "action": "lookup",
+          "scope": "func:recibir_golpe",
+          "name": "restante",
+          "found_in": "func:recibir_golpe",
+          "line": 22
+        },
+        {
+          "step": 32,
+          "action": "exit_scope",
+          "scope": "func:recibir_golpe",
+          "name": null,
+          "found_in": null,
+          "line": 15
+        },
+        {
+          "step": 33,
+          "action": "lookup",
+          "scope": "global",
+          "name": "calcular_dano",
+          "found_in": "global",
+          "line": 25
+        },
+        {
+          "step": 34,
+          "action": "lookup",
+          "scope": "global",
+          "name": "multiplicador",
+          "found_in": "global",
+          "line": 25
+        },
+        {
+          "step": 35,
+          "action": "define",
+          "scope": "global",
+          "name": "golpe",
+          "found_in": null,
+          "line": 25
+        },
+        {
+          "step": 36,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 26
+        },
+        {
+          "step": 37,
+          "action": "lookup",
+          "scope": "global",
+          "name": "recibir_golpe",
+          "found_in": "global",
+          "line": 26
+        },
+        {
+          "step": 38,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 26
+        },
+        {
+          "step": 39,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vivo",
+          "found_in": "global",
+          "line": 27
+        },
+        {
+          "step": 40,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 27
+        },
+        {
+          "step": 41,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vivo",
+          "found_in": "global",
+          "line": 27
+        },
+        {
+          "step": 42,
+          "action": "lookup",
+          "scope": "global",
+          "name": "heroe",
+          "found_in": "global",
+          "line": 28
+        },
+        {
+          "step": 43,
+          "action": "lookup",
+          "scope": "global",
+          "name": "vida",
+          "found_in": "global",
+          "line": 29
+        },
+        {
+          "step": 44,
+          "action": "lookup",
+          "scope": "global",
+          "name": "golpe",
+          "found_in": "global",
+          "line": 30
+        }
+      ]
+    },
+    "memory": {
+      "globals": {
+        "size": 29,
+        "slots": [
+          {
+            "name": "vida",
+            "type": "int",
+            "kind": "variable",
+            "offset": 0,
+            "size": 4
+          },
+          {
+            "name": "multiplicador",
+            "type": "float",
+            "kind": "variable",
+            "offset": 4,
+            "size": 8
+          },
+          {
+            "name": "heroe",
+            "type": "str",
+            "kind": "variable",
+            "offset": 12,
+            "size": 8
+          },
+          {
+            "name": "vivo",
+            "type": "bool",
+            "kind": "variable",
+            "offset": 20,
+            "size": 1
+          },
+          {
+            "name": "golpe",
+            "type": "float",
+            "kind": "variable",
+            "offset": 21,
+            "size": 8
+          }
+        ]
+      },
+      "frames": [
+        {
+          "function": "calcular_dano",
+          "size": 28,
+          "slots": [
+            {
+              "name": "return_address",
+              "type": null,
+              "kind": "control",
+              "offset": 0,
+              "size": 4
+            },
+            {
+              "name": "saved_fp",
+              "type": null,
+              "kind": "control",
+              "offset": 4,
+              "size": 4
+            },
+            {
+              "name": "base",
+              "type": "int",
+              "kind": "parameter",
+              "offset": 8,
+              "size": 4
+            },
+            {
+              "name": "factor",
+              "type": "float",
+              "kind": "parameter",
+              "offset": 12,
+              "size": 8
+            },
+            {
+              "name": "dano",
+              "type": "float",
+              "kind": "variable",
+              "offset": 20,
+              "size": 8
+            }
+          ]
+        },
+        {
+          "function": "recibir_golpe",
+          "size": 20,
+          "slots": [
+            {
+              "name": "return_address",
+              "type": null,
+              "kind": "control",
+              "offset": 0,
+              "size": 4
+            },
+            {
+              "name": "saved_fp",
+              "type": null,
+              "kind": "control",
+              "offset": 4,
+              "size": 4
+            },
+            {
+              "name": "actual",
+              "type": "int",
+              "kind": "parameter",
+              "offset": 8,
+              "size": 4
+            },
+            {
+              "name": "golpe",
+              "type": "int",
+              "kind": "parameter",
+              "offset": 12,
+              "size": 4
+            },
+            {
+              "name": "restante",
+              "type": "int",
+              "kind": "variable",
+              "offset": 16,
+              "size": 4
+            }
+          ]
+        }
+      ],
+      "heap": [
+        {
+          "address": "0x1000",
+          "value": "Aria",
+          "size": 5
+        },
+        {
+          "address": "0x1005",
+          "value": "Resiste el golpe",
+          "size": 17
+        },
+        {
+          "address": "0x1016",
+          "value": " sigue en pie",
+          "size": 14
+        }
+      ]
+    },
+    "ir": [
+      {
+        "index": 0,
+        "op": "func_begin",
+        "arg1": "calcular_dano",
+        "arg2": null,
+        "result": null,
+        "text": "func_begin calcular_dano"
+      },
+      {
+        "index": 1,
+        "op": "int_to_float",
+        "arg1": "base",
+        "arg2": null,
+        "result": "t1",
+        "text": "t1 = int_to_float base"
+      },
+      {
+        "index": 2,
+        "op": "*",
+        "arg1": "t1",
+        "arg2": "factor",
+        "result": "t2",
+        "text": "t2 = t1 * factor"
+      },
+      {
+        "index": 3,
+        "op": "=",
+        "arg1": "t2",
+        "arg2": null,
+        "result": "dano",
+        "text": "dano = t2"
+      },
+      {
+        "index": 4,
+        "op": ">",
+        "arg1": "dano",
+        "arg2": "50.0",
+        "result": "t3",
+        "text": "t3 = dano > 50.0"
+      },
+      {
+        "index": 5,
+        "op": "if_false",
+        "arg1": "t3",
+        "arg2": null,
+        "result": "L1",
+        "text": "if_false t3 goto L1"
+      },
+      {
+        "index": 6,
+        "op": "=",
+        "arg1": "50.0",
+        "arg2": null,
+        "result": "dano",
+        "text": "dano = 50.0"
+      },
+      {
+        "index": 7,
+        "op": "label",
+        "arg1": null,
+        "arg2": null,
+        "result": "L1",
+        "text": "L1:"
+      },
+      {
+        "index": 8,
+        "op": "return",
+        "arg1": "dano",
+        "arg2": null,
+        "result": null,
+        "text": "return dano"
+      },
+      {
+        "index": 9,
+        "op": "func_end",
+        "arg1": "calcular_dano",
+        "arg2": null,
+        "result": null,
+        "text": "func_end calcular_dano"
+      },
+      {
+        "index": 10,
+        "op": "func_begin",
+        "arg1": "recibir_golpe",
+        "arg2": null,
+        "result": null,
+        "text": "func_begin recibir_golpe"
+      },
+      {
+        "index": 11,
+        "op": "-",
+        "arg1": "actual",
+        "arg2": "golpe",
+        "result": "t4",
+        "text": "t4 = actual - golpe"
+      },
+      {
+        "index": 12,
+        "op": "=",
+        "arg1": "t4",
+        "arg2": null,
+        "result": "restante",
+        "text": "restante = t4"
+      },
+      {
+        "index": 13,
+        "op": "<",
+        "arg1": "restante",
+        "arg2": "0",
+        "result": "t5",
+        "text": "t5 = restante < 0"
+      },
+      {
+        "index": 14,
+        "op": "if_false",
+        "arg1": "t5",
+        "arg2": null,
+        "result": "L2",
+        "text": "if_false t5 goto L2"
+      },
+      {
+        "index": 15,
+        "op": "=",
+        "arg1": "0",
+        "arg2": null,
+        "result": "restante",
+        "text": "restante = 0"
+      },
+      {
+        "index": 16,
+        "op": "goto",
+        "arg1": null,
+        "arg2": null,
+        "result": "L3",
+        "text": "goto L3"
+      },
+      {
+        "index": 17,
+        "op": "label",
+        "arg1": null,
+        "arg2": null,
+        "result": "L2",
+        "text": "L2:"
+      },
+      {
+        "index": 18,
+        "op": "print",
+        "arg1": "\"Resiste el golpe\"",
+        "arg2": null,
+        "result": null,
+        "text": "print \"Resiste el golpe\""
+      },
+      {
+        "index": 19,
+        "op": "label",
+        "arg1": null,
+        "arg2": null,
+        "result": "L3",
+        "text": "L3:"
+      },
+      {
+        "index": 20,
+        "op": "return",
+        "arg1": "restante",
+        "arg2": null,
+        "result": null,
+        "text": "return restante"
+      },
+      {
+        "index": 21,
+        "op": "func_end",
+        "arg1": "recibir_golpe",
+        "arg2": null,
+        "result": null,
+        "text": "func_end recibir_golpe"
+      },
+      {
+        "index": 22,
+        "op": "label",
+        "arg1": null,
+        "arg2": null,
+        "result": "main",
+        "text": "main:"
+      },
+      {
+        "index": 23,
+        "op": "=",
+        "arg1": "100",
+        "arg2": null,
+        "result": "vida",
+        "text": "vida = 100"
+      },
+      {
+        "index": 24,
+        "op": "=",
+        "arg1": "1.5",
+        "arg2": null,
+        "result": "multiplicador",
+        "text": "multiplicador = 1.5"
+      },
+      {
+        "index": 25,
+        "op": "=",
+        "arg1": "\"Aria\"",
+        "arg2": null,
+        "result": "heroe",
+        "text": "heroe = \"Aria\""
+      },
+      {
+        "index": 26,
+        "op": "=",
+        "arg1": "true",
+        "arg2": null,
+        "result": "vivo",
+        "text": "vivo = true"
+      },
+      {
+        "index": 27,
+        "op": "param",
+        "arg1": "40",
+        "arg2": null,
+        "result": null,
+        "text": "param 40"
+      },
+      {
+        "index": 28,
+        "op": "param",
+        "arg1": "multiplicador",
+        "arg2": null,
+        "result": null,
+        "text": "param multiplicador"
+      },
+      {
+        "index": 29,
+        "op": "call",
+        "arg1": "calcular_dano",
+        "arg2": "2",
+        "result": "t6",
+        "text": "t6 = call calcular_dano, 2"
+      },
+      {
+        "index": 30,
+        "op": "=",
+        "arg1": "t6",
+        "arg2": null,
+        "result": "golpe",
+        "text": "golpe = t6"
+      },
+      {
+        "index": 31,
+        "op": "param",
+        "arg1": "vida",
+        "arg2": null,
+        "result": null,
+        "text": "param vida"
+      },
+      {
+        "index": 32,
+        "op": "param",
+        "arg1": "35",
+        "arg2": null,
+        "result": null,
+        "text": "param 35"
+      },
+      {
+        "index": 33,
+        "op": "call",
+        "arg1": "recibir_golpe",
+        "arg2": "2",
+        "result": "t7",
+        "text": "t7 = call recibir_golpe, 2"
+      },
+      {
+        "index": 34,
+        "op": "=",
+        "arg1": "t7",
+        "arg2": null,
+        "result": "vida",
+        "text": "vida = t7"
+      },
+      {
+        "index": 35,
+        "op": ">",
+        "arg1": "vida",
+        "arg2": "0",
+        "result": "t8",
+        "text": "t8 = vida > 0"
+      },
+      {
+        "index": 36,
+        "op": "&&",
+        "arg1": "t8",
+        "arg2": "vivo",
+        "result": "t9",
+        "text": "t9 = t8 && vivo"
+      },
+      {
+        "index": 37,
+        "op": "=",
+        "arg1": "t9",
+        "arg2": null,
+        "result": "vivo",
+        "text": "vivo = t9"
+      },
+      {
+        "index": 38,
+        "op": "+",
+        "arg1": "heroe",
+        "arg2": "\" sigue en pie\"",
+        "result": "t10",
+        "text": "t10 = heroe + \" sigue en pie\""
+      },
+      {
+        "index": 39,
+        "op": "print",
+        "arg1": "t10",
+        "arg2": null,
+        "result": null,
+        "text": "print t10"
+      },
+      {
+        "index": 40,
+        "op": "print",
+        "arg1": "vida",
+        "arg2": null,
+        "result": null,
+        "text": "print vida"
+      },
+      {
+        "index": 41,
+        "op": "print",
+        "arg1": "golpe",
+        "arg2": null,
+        "result": null,
+        "text": "print golpe"
+      }
+    ],
+    "assembly": {
+      "register_count": 4,
+      "instructions": [
+        "FUNC calcular_dano",
+        "    LOAD   R0, base",
+        "    ITOF   R0                 ; coerción int -> float",
+        "    LOAD   R1, factor",
+        "    MUL    R0, R1             ; R0 = t2",
+        "    STORE  dano, R0",
+        "    LOAD   R0, dano",
+        "    LOAD   R1, #50.0",
+        "    CMP    R0, R1",
+        "    SETGT  R0                 ; R0 = t3",
+        "    JZ     R0, L1",
+        "    LOAD   R0, #50.0",
+        "    STORE  dano, R0",
+        "L1:",
+        "    LOAD   R0, dano",
+        "    RET    R0",
+        "ENDFUNC calcular_dano",
+        "FUNC recibir_golpe",
+        "    LOAD   R0, actual",
+        "    LOAD   R1, golpe",
+        "    SUB    R0, R1             ; R0 = t4",
+        "    STORE  restante, R0",
+        "    LOAD   R0, restante",
+        "    LOAD   R1, #0",
+        "    CMP    R0, R1",
+        "    SETLT  R0                 ; R0 = t5",
+        "    JZ     R0, L2",
+        "    LOAD   R0, #0",
+        "    STORE  restante, R0",
+        "    JMP    L3",
+        "L2:",
+        "    LOAD   R0, #\"Resiste el golpe\"",
+        "    PRINT  R0",
+        "L3:",
+        "    LOAD   R0, restante",
+        "    RET    R0",
+        "ENDFUNC recibir_golpe",
+        "main:",
+        "    LOAD   R0, #100",
+        "    STORE  vida, R0",
+        "    LOAD   R0, #1.5",
+        "    STORE  multiplicador, R0",
+        "    LOAD   R0, #\"Aria\"",
+        "    STORE  heroe, R0",
+        "    LOAD   R0, #true",
+        "    STORE  vivo, R0",
+        "    LOAD   R0, #40",
+        "    PUSH   R0",
+        "    LOAD   R0, multiplicador",
+        "    PUSH   R0",
+        "    CALL   calcular_dano",
+        "    MOV    R0, RV             ; R0 = t6",
+        "    STORE  golpe, R0",
+        "    LOAD   R0, vida",
+        "    PUSH   R0",
+        "    LOAD   R0, #35",
+        "    PUSH   R0",
+        "    CALL   recibir_golpe",
+        "    MOV    R0, RV             ; R0 = t7",
+        "    STORE  vida, R0",
+        "    LOAD   R0, vida",
+        "    LOAD   R1, #0",
+        "    CMP    R0, R1",
+        "    SETGT  R0                 ; R0 = t8",
+        "    LOAD   R1, vivo",
+        "    AND    R0, R1             ; R0 = t9",
+        "    STORE  vivo, R0",
+        "    LOAD   R0, heroe",
+        "    LOAD   R1, #\" sigue en pie\"",
+        "    ADD    R0, R1             ; R0 = t10",
+        "    PRINT  R0",
+        "    LOAD   R0, vida",
+        "    PRINT  R0",
+        "    LOAD   R0, golpe",
+        "    PRINT  R0",
+        "    HALT"
+      ],
+      "register_trace": [
+        {
+          "instruction": 0,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 1,
+          "registers": {
+            "R0": "base",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 2,
+          "registers": {
+            "R0": "t1",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 3,
+          "registers": {
+            "R0": "t1",
+            "R1": "factor",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 4,
+          "registers": {
+            "R0": "t2",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 5,
+          "registers": {
+            "R0": "t2",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 6,
+          "registers": {
+            "R0": "dano",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 7,
+          "registers": {
+            "R0": "dano",
+            "R1": "#50.0",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 8,
+          "registers": {
+            "R0": "dano",
+            "R1": "#50.0",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 9,
+          "registers": {
+            "R0": "t3",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 10,
+          "registers": {
+            "R0": "t3",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 11,
+          "registers": {
+            "R0": "#50.0",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 12,
+          "registers": {
+            "R0": "#50.0",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 13,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 14,
+          "registers": {
+            "R0": "dano",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 15,
+          "registers": {
+            "R0": "dano",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 16,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 17,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 18,
+          "registers": {
+            "R0": "actual",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 19,
+          "registers": {
+            "R0": "actual",
+            "R1": "golpe",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 20,
+          "registers": {
+            "R0": "t4",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 21,
+          "registers": {
+            "R0": "t4",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 22,
+          "registers": {
+            "R0": "restante",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 23,
+          "registers": {
+            "R0": "restante",
+            "R1": "#0",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 24,
+          "registers": {
+            "R0": "restante",
+            "R1": "#0",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 25,
+          "registers": {
+            "R0": "t5",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 26,
+          "registers": {
+            "R0": "t5",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 27,
+          "registers": {
+            "R0": "#0",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 28,
+          "registers": {
+            "R0": "#0",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 29,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 30,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 31,
+          "registers": {
+            "R0": "#\"Resiste el golpe\"",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 32,
+          "registers": {
+            "R0": "#\"Resiste el golpe\"",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 33,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 34,
+          "registers": {
+            "R0": "restante",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 35,
+          "registers": {
+            "R0": "restante",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 36,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 37,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 38,
+          "registers": {
+            "R0": "#100",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 39,
+          "registers": {
+            "R0": "#100",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 40,
+          "registers": {
+            "R0": "#1.5",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 41,
+          "registers": {
+            "R0": "#1.5",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 42,
+          "registers": {
+            "R0": "#\"Aria\"",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 43,
+          "registers": {
+            "R0": "#\"Aria\"",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 44,
+          "registers": {
+            "R0": "#true",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 45,
+          "registers": {
+            "R0": "#true",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 46,
+          "registers": {
+            "R0": "#40",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 47,
+          "registers": {
+            "R0": "#40",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 48,
+          "registers": {
+            "R0": "multiplicador",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 49,
+          "registers": {
+            "R0": "multiplicador",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 50,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 51,
+          "registers": {
+            "R0": "t6",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 52,
+          "registers": {
+            "R0": "t6",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 53,
+          "registers": {
+            "R0": "vida",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 54,
+          "registers": {
+            "R0": "vida",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 55,
+          "registers": {
+            "R0": "#35",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 56,
+          "registers": {
+            "R0": "#35",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 57,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 58,
+          "registers": {
+            "R0": "t7",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 59,
+          "registers": {
+            "R0": "t7",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 60,
+          "registers": {
+            "R0": "vida",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 61,
+          "registers": {
+            "R0": "vida",
+            "R1": "#0",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 62,
+          "registers": {
+            "R0": "vida",
+            "R1": "#0",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 63,
+          "registers": {
+            "R0": "t8",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 64,
+          "registers": {
+            "R0": "t8",
+            "R1": "vivo",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 65,
+          "registers": {
+            "R0": "t9",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 66,
+          "registers": {
+            "R0": "t9",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 67,
+          "registers": {
+            "R0": "heroe",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 68,
+          "registers": {
+            "R0": "heroe",
+            "R1": "#\" sigue en pie\"",
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 69,
+          "registers": {
+            "R0": "t10",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 70,
+          "registers": {
+            "R0": "t10",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 71,
+          "registers": {
+            "R0": "vida",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 72,
+          "registers": {
+            "R0": "vida",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 73,
+          "registers": {
+            "R0": "golpe",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 74,
+          "registers": {
+            "R0": "golpe",
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        },
+        {
+          "instruction": 75,
+          "registers": {
+            "R0": null,
+            "R1": null,
+            "R2": null,
+            "R3": null
+          }
+        }
+      ],
+      "spills": []
+    }
+  }
+}
