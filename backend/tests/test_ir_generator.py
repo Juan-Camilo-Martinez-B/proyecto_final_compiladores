@@ -1,4 +1,12 @@
 """Pruebas del generador de codigo de tres direcciones (cuadruplas)."""
+# ======================================================================
+# Pruebas de la FASE 5 (ir_generator.py).
+# Construyen ASTs a mano con inferred_type y verifican las cuadruplas: texto de
+# cada operacion, coerciones int_to_float, etiquetas de if/else, llamadas con
+# param/call y el orden funciones -> main.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_ir_generator -v
+# ======================================================================
 import unittest
 
 from rpg_compiler.ast_nodes import (

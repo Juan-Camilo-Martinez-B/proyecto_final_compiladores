@@ -1,4 +1,12 @@
 """Pruebas del generador de pseudo-ensamblador y la asignacion de registros."""
+# ======================================================================
+# Pruebas de la FASE 6 (codegen.py).
+# Construyen cuadruplas a mano y verifican la seleccion de instrucciones
+# (ADD, CMP + SETxx, JZ, CALL...), la asignacion de registros, los spills con
+# pocos registros y que register_trace tenga una foto por instruccion.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_codegen -v
+# ======================================================================
 import unittest
 from pathlib import Path
 

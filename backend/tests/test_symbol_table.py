@@ -1,4 +1,12 @@
 """Pruebas de la pila de ambitos: visibilidad, redeclaracion, shadowing y traza."""
+# ======================================================================
+# Pruebas de la tabla de simbolos (symbol_table.py).
+# Verifican la pila de ambitos: lookup en el ambito actual, en el padre y en
+# el abuelo; que una variable deja de ser visible tras exit_scope; la
+# redeclaracion, el shadowing y la traza de operaciones.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_symbol_table -v
+# ======================================================================
 import unittest
 
 from rpg_compiler.symbol_table import Symbol, SymbolTable

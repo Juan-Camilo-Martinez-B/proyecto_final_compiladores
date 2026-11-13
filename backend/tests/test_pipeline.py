@@ -1,4 +1,13 @@
 """Pruebas de integracion de punta a punta: archivo .rpg -> respuesta completa del contrato."""
+# ======================================================================
+# Pruebas de INTEGRACION de punta a punta (pipeline.py).
+# Compilan los programas de backend/examples y verifican el resultado completo:
+# fases ejecutadas, diagnosticos exactos, memoria, TAC, spills y salida de la
+# maquina virtual. Tambien prueban entradas inusuales y que los mocks de la web
+# coincidan con la salida real del compilador.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_pipeline -v
+# ======================================================================
 import json
 import unittest
 from pathlib import Path

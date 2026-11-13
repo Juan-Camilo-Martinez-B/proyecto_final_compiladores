@@ -10,6 +10,23 @@ Uso:
 Solo depende de pipeline.compile_source(): imprime a partir del diccionario del
 contrato de la API, igual que lo consume la vista web.
 """
+# ======================================================================
+# main.py - Interfaz de linea de comandos (CLI)
+# ----------------------------------------------------------------------
+# Lee un archivo .rpg, lo compila con pipeline.compile_source() e imprime
+# cada fase como tablas de texto. No importa los modulos de las fases:
+# trabaja solo con el diccionario del contrato JSON, igual que la web, asi
+# la consola y la web siempre muestran lo mismo.
+#
+# Modos:
+#   (sin opciones)  todas las fases y los diagnosticos.
+#   --phase X       una sola fase: tokens, ast, symbols, memory, ir, asm o run.
+#   --json          la respuesta completa en JSON.
+#   --run           solo la salida del programa, como al ejecutar un binario.
+#   --registers N   registros de la CPU simulada (2 a 16).
+#
+# Codigo de salida: 0 si compila y se ejecuta sin errores; 1 en otro caso.
+# ======================================================================
 import argparse
 import json
 import sys
@@ -17,7 +34,9 @@ from pathlib import Path
 
 from rpg_compiler.pipeline import compile_source
 
+# Nombres de fase que acepta --phase, en orden de impresion.
 PHASES = ("tokens", "ast", "symbols", "memory", "ir", "asm", "run")
+# Opcion de la CLI -> (clave de la fase en el contrato, titulo que se imprime).
 PHASE_TITLES = {
     "tokens": ("tokens", "FASE 1: TOKENS (ANÁLISIS LÉXICO)"),
     "ast": ("ast", "FASE 2: ÁRBOL DE SINTAXIS ABSTRACTA (AST)"),
@@ -27,13 +46,21 @@ PHASE_TITLES = {
     "asm": ("assembly", "FASE 6: PSEUDO-ENSAMBLADOR"),
     "run": ("execution", "EJECUCIÓN (MÁQUINA VIRTUAL DE TAC)"),
 }
+# Texto que se muestra cuando una fase no produjo datos.
 STATUS_LABELS = {
     "skipped": "(fase omitida por errores en una fase anterior)",
     "not_implemented": "(fase aún no implementada)",
 }
-MAX_SOURCE_BYTES = 64 * 1024
+MAX_SOURCE_BYTES = 64 * 1024   # tamano maximo del archivo fuente (64 KB)
 
 
+# ----------------------------------------------------------------------
+# main(argv): punto de entrada de la CLI.
+#   argv : argumentos de la linea de comandos (None = los reales); las
+#          pruebas pasan una lista para simular la ejecucion.
+# Pasos: configura la consola, lee los argumentos y el archivo, compila y
+# muestra el resultado segun el modo elegido. Retorna el codigo de salida.
+# ----------------------------------------------------------------------
 def main(argv: list[str] | None = None) -> int:
     _configure_console()
     args = _parse_args(argv)
@@ -49,6 +76,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.run:
         return _run_only(result)
 
+    # Modo normal: imprime las fases pedidas y al final los diagnosticos.
     selected = PHASES if args.phase == "all" else (args.phase,)
     for phase in selected:
         key, title = PHASE_TITLES[phase]
@@ -57,11 +85,14 @@ def main(argv: list[str] | None = None) -> int:
     return _exit_code(result)
 
 
+# Codigo de salida del proceso (util para scripts): 0 = todo bien, 1 = error.
 def _exit_code(result: dict) -> int:
     """0 solo si compilo sin errores y la ejecucion no fallo."""
     return 0 if result["success"] and result["status"].get("execution") != "error" else 1
 
 
+# Modo --run: si el programa compila, imprime solo lo que imprimio la maquina
+# virtual. Un error de ejecucion va a la salida de errores (stderr).
 def _run_only(result: dict) -> int:
     """Modo --run: como ejecutar un programa compilado, solo se ve su salida."""
     if not result["success"]:
@@ -77,6 +108,7 @@ def _run_only(result: dict) -> int:
     return _exit_code(result)
 
 
+# Mensaje de un error de ejecucion con la instruccion TAC donde ocurrio.
 def _runtime_error_text(error: dict) -> str:
     return (f"Error en tiempo de ejecución en la instrucción {error['instruction']} "
             f"({error['text']}): {error['message']}")
@@ -92,6 +124,7 @@ def _configure_console() -> None:
             stream.reconfigure(encoding="utf-8")
 
 
+# Define y lee las opciones de la linea de comandos con argparse.
 def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Compilador de RPGScript: muestra cada fase del pipeline.")
     parser.add_argument("file", help="archivo fuente con extensión .rpg")
@@ -105,6 +138,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
+# Valida --registers: debe ser un entero entre 2 y 16. Si no, argparse
+# muestra el mensaje y termina.
 def _register_count(value: str) -> int:
     try:
         count = int(value)
@@ -115,6 +150,8 @@ def _register_count(value: str) -> int:
     return count
 
 
+# Lee el archivo fuente validando extension .rpg, que exista, el tamano maximo
+# y la codificacion UTF-8. Retorna el texto, o None (con el mensaje ya impreso).
 def _read_source(file_name: str) -> str | None:
     path = Path(file_name)
     if path.suffix != ".rpg":
@@ -136,6 +173,8 @@ def _read_source(file_name: str) -> str | None:
 # ----------------------------------------------------------------------
 # Impresion de fases
 # ----------------------------------------------------------------------
+# Imprime el titulo de una fase y despacha a su funcion de impresion. Si la
+# fase no produjo datos, muestra por que (omitida o no implementada).
 def _print_phase(title: str, key: str, result: dict) -> None:
     print(f"\n=== {title} ===")
     data = result["phases"].get(key)
@@ -151,16 +190,20 @@ def _print_phase(title: str, key: str, result: dict) -> None:
     printers[key](data)
 
 
+# Fase 1: tabla con numero, tipo, lexema, linea y columna de cada token.
 def _print_tokens(tokens: list[dict]) -> None:
     rows = [(i + 1, t["type"], t["lexeme"], t["line"], t["column"]) for i, t in enumerate(tokens)]
     _print_table(("#", "TIPO", "LEXEMA", "LÍNEA", "COL"), rows)
 
 
+# Fase 2: dibuja el AST como arbol de texto, empezando por la raiz.
 def _print_ast(ast: dict) -> None:
     print(_node_label(ast))
     _print_children(ast, prefix="")
 
 
+# Dibuja los hijos de un nodo de forma recursiva. El ultimo hijo usa "└──" y
+# los demas "├──"; prefix acumula las lineas verticales de los niveles de arriba.
 def _print_children(node: dict, prefix: str) -> None:
     children = _ast_children(node)
     for index, child in enumerate(children):
@@ -169,6 +212,8 @@ def _print_children(node: dict, prefix: str) -> None:
         _print_children(child, prefix + ("    " if last else "│   "))
 
 
+# Hijos de un nodo serializado: todos los valores que son nodos o listas de
+# nodos, en el orden de sus campos.
 def _ast_children(node: dict) -> list[dict]:
     if node.get("node") == "FuncDecl":
         return [node["body"]]  # los parametros ya aparecen en la etiqueta
@@ -181,6 +226,8 @@ def _ast_children(node: dict) -> list[dict]:
     return children
 
 
+# Texto de un nodo: su tipo, sus datos clave, el tipo inferido y su posicion.
+# Ejemplo: "BinaryOp '-' : int  [2:16]".
 def _node_label(node: dict) -> str:
     kind = node.get("node", "?")
     labels = {
@@ -201,6 +248,8 @@ def _node_label(node: dict) -> str:
     return f"{label}  [{node.get('line')}:{node.get('column')}]"
 
 
+# Fase 3: una fila por simbolo agrupada por ambito, y despues la traza de la
+# pila de ambitos paso a paso.
 def _print_symbols(symbols: dict) -> None:
     rows = []
     for scope in symbols.get("scopes", []):
@@ -222,6 +271,8 @@ def _print_symbols(symbols: dict) -> None:
             print("  " + _trace_line(event))
 
 
+# Traduce un evento de la traza (enter_scope, exit_scope, define, lookup) a
+# una frase en espanol.
 def _trace_line(event: dict) -> str:
     action = event.get("action")
     step = f"{event.get('step', '')}.".ljust(5)
@@ -237,6 +288,7 @@ def _trace_line(event: dict) -> str:
     return f"{step}lookup '{event.get('name')}' desde '{event.get('scope')}': {result} {line}"
 
 
+# Fase 4: segmento global, un bloque por frame y el heap de cadenas.
 def _print_memory(memory: dict) -> None:
     globals_segment = memory.get("globals", {})
     print(f"Segmento global (data) · {globals_segment.get('size', 0)} bytes")
@@ -251,17 +303,20 @@ def _print_memory(memory: dict) -> None:
                      [(h["address"], json.dumps(h["value"], ensure_ascii=False), h["size"]) for h in heap])
 
 
+# Tabla de slots: desplazamiento, nombre, tipo, clase y tamano.
 def _print_slots(slots: list[dict]) -> None:
     rows = [(f"+{s['offset']}", s["name"], s.get("type") or "-", s.get("kind", ""), s["size"]) for s in slots]
     _print_table(("OFFSET", "NOMBRE", "TIPO", "CLASE", "BYTES"), rows)
 
 
+# Fase 5: tabla de cuadruplas (op, arg1, arg2, result) y su texto TAC.
 def _print_ir(quads: list[dict]) -> None:
     rows = [(q["index"], q["op"], _dash(q.get("arg1")), _dash(q.get("arg2")), _dash(q.get("result")), q.get("text", ""))
             for q in quads]
     _print_table(("#", "OP", "ARG1", "ARG2", "RESULT", "TAC"), rows)
 
 
+# Fase 6: listado numerado del ensamblador y tabla de spills.
 def _print_assembly(assembly: dict) -> None:
     for index, instruction in enumerate(assembly.get("instructions", [])):
         print(f"{index:>4}  {instruction}")
@@ -272,6 +327,7 @@ def _print_assembly(assembly: dict) -> None:
                      [(s["variable"], s["slot"], s["instruction"]) for s in spills])
 
 
+# Ejecucion: lo que imprimio el programa y como termino.
 def _print_execution(execution: dict) -> None:
     print("--- salida del programa ---")
     for line in execution.get("output", []):
@@ -285,6 +341,7 @@ def _print_execution(execution: dict) -> None:
         print(f"Programa terminado: {execution.get('steps', 0)} instrucciones TAC ejecutadas.")
 
 
+# Lista de errores y advertencias con su fase y posicion, y un resumen final.
 def _print_diagnostics(diagnostics: list[dict]) -> None:
     print("\n=== DIAGNÓSTICOS ===")
     errors = [d for d in diagnostics if d["severity"] == "error"]
@@ -300,10 +357,13 @@ def _print_diagnostics(diagnostics: list[dict]) -> None:
 # ----------------------------------------------------------------------
 # Utilidades
 # ----------------------------------------------------------------------
+# Muestra "-" en lugar de None en las tablas.
 def _dash(value) -> str:
     return "-" if value is None else str(value)
 
 
+# Imprime una tabla de texto alineada: calcula el ancho de cada columna (el
+# mas largo entre el encabezado y sus valores) y rellena con espacios.
 def _print_table(headers: tuple, rows: list[tuple]) -> None:
     text_rows = [[str(value) for value in row] for row in rows]
     widths = [max([len(header)] + [len(row[i]) for row in text_rows]) for i, header in enumerate(headers)]

@@ -1,3 +1,10 @@
+# ======================================================================
+# Pruebas de la CLI (main.py).
+# Ejecutan main() capturando la salida y verifican la impresion de cada fase,
+# los codigos de salida, el modo --json y el modo --run.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_cli -v
+# ======================================================================
 import contextlib
 import io
 import json
