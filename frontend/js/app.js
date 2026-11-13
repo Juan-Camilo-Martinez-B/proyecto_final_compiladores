@@ -1,13 +1,13 @@
 // Estado, eventos y pestanas: conecta la API con los renderers.
 import { compileSource, fetchExamples, mockMode } from "./api.js";
 import {
-  PHASES, h, renderAssembly, renderAst, renderDiagnostics, renderIr, renderMemory,
-  renderPipelineBar, renderSymbols, renderTokens,
+  PHASES, h, renderAssembly, renderAst, renderDiagnostics, renderExecution, renderIr,
+  renderMemory, renderPipelineBar, renderSymbols, renderTokens,
 } from "./renderers.js";
 
 const RENDERERS = {
   tokens: renderTokens, ast: renderAst, symbols: renderSymbols,
-  memory: renderMemory, ir: renderIr, assembly: renderAssembly,
+  memory: renderMemory, ir: renderIr, assembly: renderAssembly, execution: renderExecution,
 };
 const DEFAULT_EXAMPLE = "batalla_ok.rpg";
 const MOCK_EXAMPLES = { ok: "batalla_ok.rpg", errors: "estres_semantico.rpg" };

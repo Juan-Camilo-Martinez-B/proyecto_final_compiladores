@@ -6,7 +6,8 @@
     "symbols": "ok",
     "memory": "ok",
     "ir": "ok",
-    "assembly": "ok"
+    "assembly": "ok",
+    "execution": "ok"
   },
   "diagnostics": [
     { "phase": "semantico", "severity": "warning", "message": "'vida' oculta a la variable declarada en el ámbito 'global'.", "line": 10, "column": 9 }
@@ -89,6 +90,12 @@
         { "instruction": 2, "registers": { "R0": "t1", "R1": null, "R2": null, "R3": null } }
       ],
       "spills": []
+    },
+    "execution": {
+      "status": "finished",
+      "output": ["Resiste el golpe", "Aria sigue en pie", "65", "50.0"],
+      "steps": 36,
+      "error": null
     }
   }
 }

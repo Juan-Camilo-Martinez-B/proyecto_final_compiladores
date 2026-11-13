@@ -311,3 +311,13 @@ tr.ir-func td { background: color-mix(in srgb, var(--gold) 8%, transparent); }
   .diagnostics .msg { grid-column: 1 / -1; }
   .btn-primary { margin-left: 0; }
 }
+
+/* Consola: terminal simulada con la salida de la maquina virtual */
+.console { background: #0d0f16; border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; font: 13.5px/1.6 var(--mono); overflow-x: auto; }
+.console-prompt { color: var(--gold); margin-bottom: 6px; }
+.console-line { color: var(--text); white-space: pre-wrap; word-break: break-word; }
+.console-line.muted { color: var(--muted); }
+.console-status { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border); font-family: var(--ui); }
+.console-status.ok { color: var(--ok); }
+.console-status.error { color: var(--error); }
+.console-detail { margin-top: 4px; color: var(--muted); font-family: var(--mono); font-size: 12.5px; }

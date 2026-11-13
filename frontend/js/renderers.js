@@ -8,6 +8,7 @@ export const PHASES = [
   { key: "memory", label: "Memoria" },
   { key: "ir", label: "TAC" },
   { key: "assembly", label: "ASM" },
+  { key: "execution", label: "Consola" },
 ];
 
 const STATUS_TEXT = {
@@ -412,6 +413,38 @@ export function renderAssembly(container, assembly) {
     const first = lines.findIndex((li) => li.classList.contains("spill"));
     lines[Math.max(first, 0)].click();
   }
+}
+
+// ----------------------------------------------------------------------
+// Ejecucion: terminal simulada con la salida de la maquina virtual de TAC
+// ----------------------------------------------------------------------
+export function renderExecution(container, execution) {
+  if (!execution) {
+    clear(container);
+    container.append(h("p", { className: "empty",
+      text: "El programa solo se ejecuta si compila sin errores." }));
+    return;
+  }
+  clear(container);
+  const output = execution.output ?? [];
+  const lines = output.map((line) => h("div", { className: "console-line", text: line }));
+  if (!output.length) {
+    lines.push(h("div", { className: "console-line muted", text: "(el programa no imprimió nada)" }));
+  }
+  const error = execution.error;
+  const footer = error
+    ? h("div", { className: "console-status error" },
+      h("strong", { text: "Error en tiempo de ejecución: " }), error.message,
+      h("div", { className: "console-detail",
+        text: `Instrucción TAC ${error.instruction}: ${error.text}` }))
+    : h("div", { className: "console-status ok",
+      text: `Programa terminado · ${execution.steps} instrucciones TAC ejecutadas` });
+
+  container.append(
+    h("p", { className: "muted",
+      text: "La máquina virtual ejecuta las cuádruplas del código intermedio, una por una." }),
+    h("div", { className: "console", role: "log", "aria-label": "Salida del programa" },
+      h("div", { className: "console-prompt", text: "$ rpgscript run" }), lines, footer));
 }
 
 // ----------------------------------------------------------------------

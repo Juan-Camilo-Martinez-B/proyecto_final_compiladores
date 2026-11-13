@@ -5,6 +5,7 @@ Uso:
     python main.py examples/batalla_ok.rpg --phase tokens
     python main.py examples/batalla_ok.rpg --json
     python main.py examples/spill_registros.rpg --registers 2
+    python main.py examples/notas.rpg --run        # compila y solo muestra lo que imprime el programa
 
 Solo depende de pipeline.compile_source(): imprime a partir del diccionario del
 contrato de la API, igual que lo consume la vista web.
@@ -16,7 +17,7 @@ from pathlib import Path
 
 from rpg_compiler.pipeline import compile_source
 
-PHASES = ("tokens", "ast", "symbols", "memory", "ir", "asm")
+PHASES = ("tokens", "ast", "symbols", "memory", "ir", "asm", "run")
 PHASE_TITLES = {
     "tokens": ("tokens", "FASE 1: TOKENS (ANÁLISIS LÉXICO)"),
     "ast": ("ast", "FASE 2: ÁRBOL DE SINTAXIS ABSTRACTA (AST)"),
@@ -24,6 +25,7 @@ PHASE_TITLES = {
     "memory": ("memory", "FASE 4: MODELO DE MEMORIA"),
     "ir": ("ir", "FASE 5: CÓDIGO DE TRES DIRECCIONES (CUÁDRUPLAS)"),
     "asm": ("assembly", "FASE 6: PSEUDO-ENSAMBLADOR"),
+    "run": ("execution", "EJECUCIÓN (MÁQUINA VIRTUAL DE TAC)"),
 }
 STATUS_LABELS = {
     "skipped": "(fase omitida por errores en una fase anterior)",
@@ -43,14 +45,41 @@ def main(argv: list[str] | None = None) -> int:
     result = compile_source(source, register_count=args.registers)
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
-        return 0 if result["success"] else 1
+        return _exit_code(result)
+    if args.run:
+        return _run_only(result)
 
     selected = PHASES if args.phase == "all" else (args.phase,)
     for phase in selected:
         key, title = PHASE_TITLES[phase]
         _print_phase(title, key, result)
     _print_diagnostics(result["diagnostics"])
-    return 0 if result["success"] else 1
+    return _exit_code(result)
+
+
+def _exit_code(result: dict) -> int:
+    """0 solo si compilo sin errores y la ejecucion no fallo."""
+    return 0 if result["success"] and result["status"].get("execution") != "error" else 1
+
+
+def _run_only(result: dict) -> int:
+    """Modo --run: como ejecutar un programa compilado, solo se ve su salida."""
+    if not result["success"]:
+        print("El programa no compila; no se puede ejecutar.", file=sys.stderr)
+        _print_diagnostics(result["diagnostics"])
+        return 1
+    execution = result["phases"].get("execution") or {}
+    for line in execution.get("output", []):
+        print(line)
+    if execution.get("error"):
+        sys.stdout.flush()  # la salida del programa debe verse antes que el error
+        print(_runtime_error_text(execution["error"]), file=sys.stderr)
+    return _exit_code(result)
+
+
+def _runtime_error_text(error: dict) -> str:
+    return (f"Error en tiempo de ejecución en la instrucción {error['instruction']} "
+            f"({error['text']}): {error['message']}")
 
 
 # ----------------------------------------------------------------------
@@ -71,6 +100,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
     parser.add_argument("--json", action="store_true", help="imprime la respuesta completa en JSON")
     parser.add_argument("--registers", type=_register_count, default=4,
                         help="cantidad de registros de la CPU simulada (2 a 16, por defecto 4)")
+    parser.add_argument("--run", action="store_true",
+                        help="ejecuta el programa y muestra solo lo que imprime")
     return parser.parse_args(argv)
 
 
@@ -115,6 +146,7 @@ def _print_phase(title: str, key: str, result: dict) -> None:
     printers = {
         "tokens": _print_tokens, "ast": _print_ast, "symbols": _print_symbols,
         "memory": _print_memory, "ir": _print_ir, "assembly": _print_assembly,
+        "execution": _print_execution,
     }
     printers[key](data)
 
@@ -238,6 +270,19 @@ def _print_assembly(assembly: dict) -> None:
     if spills:
         _print_table(("VARIABLE", "SLOT", "INSTRUCCIÓN"),
                      [(s["variable"], s["slot"], s["instruction"]) for s in spills])
+
+
+def _print_execution(execution: dict) -> None:
+    print("--- salida del programa ---")
+    for line in execution.get("output", []):
+        print(line)
+    if not execution.get("output"):
+        print("(el programa no imprimió nada)")
+    print("---")
+    if execution.get("error"):
+        print(_runtime_error_text(execution["error"]))
+    else:
+        print(f"Programa terminado: {execution.get('steps', 0)} instrucciones TAC ejecutadas.")
 
 
 def _print_diagnostics(diagnostics: list[dict]) -> None:
