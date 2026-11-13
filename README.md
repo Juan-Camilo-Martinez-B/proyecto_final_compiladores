@@ -177,7 +177,23 @@ Los programas de `backend/examples/` son los casos de la sustentación. Sus resu
 | `error_lexico.rpg` | Errores léxicos | 3 errores: `@` (línea 2), cadena sin cerrar (línea 3), `2poder` (línea 4) |
 | `error_sintactico.rpg` | Recuperación sintáctica | 3 errores (líneas 1, 2 y 5), sin errores en cascada |
 | `estres_semantico.rpg` | Prueba de estrés del semántico | 13 errores y 1 advertencia, uno por cada regla violada |
-| `spill_registros.rpg` | Presión sobre los registros | 2 spills con 4 registros y 4 spills con 2 registros |
+| `spill_registros.rpg` | Presión sobre los registros | 4, 3, 2 y 1 spills con 2, 3, 4 y 5 registros; ninguno desde 6 |
+
+El tema de rol solo está en el nombre y en estos ejemplos: el compilador acepta programas de cualquier tema escritos en
+RPGScript. Estos programas lo demuestran:
+
+| Programa | Tema | Qué muestra |
+|----------|------|-------------|
+| `notas.rpg` | Calificaciones | Funciones con varios parámetros, retorno `bool`, `if/else` y concatenación |
+| `banco.rpg` | Retiro en un cajero | Coerción `int → float` explícita en el TAC (`int_to_float`) |
+| `recursion.rpg` | Factorial y Fibonacci | Recursión; el resultado de una llamada se guarda en la pila antes de la siguiente |
+| `tienda.rpg` | Factura con descuento e IVA | Operador `&&` y varios `return` en una función |
+| `salud.rpg` | IMC y temperatura | `if` anidados: ámbitos dentro de ámbitos |
+| `errores_tienda.rpg` | Factura con errores | 4 errores semánticos de tipos y de ámbito |
+
+> **Sobre los registros:** la cantidad de spills depende de cuántos valores deben estar vivos al mismo tiempo, no del
+> tamaño del programa. Una expresión como `a + b * c` se resuelve con 2 registros, así que la mayoría de los programas
+> no hacen spill con ninguna cantidad. `(a + b) * (c + d)` ya necesita 3, y `spill_registros.rpg` necesita 6.
 
 ![Vista web: prueba de estrés semántico con 13 errores y 1 advertencia](docs/img/web_errores.png)
 
@@ -256,7 +272,7 @@ cd backend
 python -m unittest discover -s tests -v
 ```
 
-128 pruebas, todas con la biblioteca estándar (`unittest`):
+133 pruebas, todas con la biblioteca estándar (`unittest`):
 
 | Archivo | Cubre |
 |---------|-------|

@@ -1,0 +1,23 @@
+// Retiro en un cajero con comisión
+float saldo = 250000.0;
+int retiro = 120000;
+float comision = 0.02;
+
+func calcular_comision(int monto, float tasa) -> float {
+    return monto * tasa;
+}
+
+func puede_retirar(float disponible, float total) -> bool {
+    return disponible >= total;
+}
+
+float costo = calcular_comision(retiro, comision);
+float total = retiro + costo;
+
+if (puede_retirar(saldo, total)) {
+    saldo = saldo - total;
+    print("Retiro exitoso");
+} else {
+    print("Fondos insuficientes");
+}
+print(saldo);

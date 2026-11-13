@@ -1,0 +1,7 @@
+// La misma tienda, con errores semánticos para la demo
+str producto = "Audífonos";
+int cantidad = "tres";
+float precio = 45000.0;
+int total = cantidad * precio;
+print(descuento);
+bool pagado = total;

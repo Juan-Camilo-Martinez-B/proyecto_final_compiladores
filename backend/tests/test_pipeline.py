@@ -109,6 +109,41 @@ class RegisterPressureTest(unittest.TestCase):
         self.assertGreater(len(two), len(four))
 
 
+class DomainExamplesTest(unittest.TestCase):
+    """Programas de otros temas: el compilador valida el lenguaje, no la tematica de rol."""
+
+    CORRECT = ("notas.rpg", "banco.rpg", "recursion.rpg", "tienda.rpg", "salud.rpg")
+
+    def test_correct_programs_compile_through_every_phase(self):
+        for name in self.CORRECT:
+            with self.subTest(example=name):
+                result = compile_example(name)
+                self.assertTrue(result["success"])
+                self.assertEqual(result["diagnostics"], [])
+                self.assertEqual(result["status"], {key: "ok" for key in PHASE_KEYS})
+
+    def test_mixed_types_emit_explicit_coercion(self):
+        texts = [quad["text"] for quad in compile_example("banco.rpg")["phases"]["ir"]]
+        self.assertTrue(any("int_to_float" in text for text in texts))
+
+    def test_recursion_saves_live_temporaries_before_call(self):
+        # fibonacci(n - 1) + fibonacci(n - 2): el primer resultado se guarda antes del segundo CALL.
+        spills = compile_example("recursion.rpg", 8)["phases"]["assembly"]["spills"]
+        self.assertEqual(len(spills), 1)
+
+    def test_nested_if_creates_nested_scopes(self):
+        scopes = compile_example("salud.rpg")["phases"]["symbols"]["scopes"]
+        parents = {scope["name"]: scope["parent"] for scope in scopes}
+        self.assertEqual(parents["else@15"], "global")
+        self.assertEqual(parents["if@18"], "else@15")
+
+    def test_semantic_errors_in_another_domain(self):
+        result = compile_example("errores_tienda.rpg")
+        errors = by_severity(result, "semantico", "error")
+        self.assertEqual([(d["line"], d["column"]) for d in errors], [(3, 1), (5, 1), (6, 7), (7, 1)])
+        self.assertIsNone(result["phases"]["assembly"])
+
+
 class RobustnessTest(unittest.TestCase):
     """El pipeline nunca lanza excepciones y siempre responde con el contrato."""
 

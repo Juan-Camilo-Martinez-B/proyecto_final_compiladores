@@ -1,0 +1,27 @@
+// Factura de una tienda con descuento e IVA
+str producto = "Audífonos";
+int cantidad = 3;
+float precio_unitario = 45000.0;
+bool cliente_frecuente = true;
+
+func subtotal(int unidades, float precio) -> float {
+    return unidades * precio;
+}
+
+func aplicar_descuento(float valor, bool frecuente) -> float {
+    if (frecuente && valor > 100000.0) {
+        return valor - valor * 0.1;
+    }
+    return valor;
+}
+
+func con_iva(float valor) -> float {
+    return valor * 1.19;
+}
+
+float base = subtotal(cantidad, precio_unitario);
+float con_descuento = aplicar_descuento(base, cliente_frecuente);
+float total = con_iva(con_descuento);
+
+print("Factura de " + producto);
+print(total);
