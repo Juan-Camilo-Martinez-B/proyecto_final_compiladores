@@ -1,0 +1,23 @@
+// Calificaciones de un estudiante
+str estudiante = "Laura";
+float parcial1 = 3.5;
+float parcial2 = 4.2;
+float final = 3.8;
+
+func promedio(float a, float b, float c) -> float {
+    return (a + b + c) / 3.0;
+}
+
+func aprobo(float nota) -> bool {
+    return nota >= 3.0;
+}
+
+float definitiva = promedio(parcial1, parcial2, final);
+bool aprobado = aprobo(definitiva);
+
+if (aprobado) {
+    print(estudiante + " aprobó la materia");
+} else {
+    print(estudiante + " debe habilitar");
+}
+print(definitiva);
