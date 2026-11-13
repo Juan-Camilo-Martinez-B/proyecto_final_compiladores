@@ -54,6 +54,11 @@ class ReferenceProgramTest(unittest.TestCase):
         self.assertIn("t1 = int_to_float base", texts)
         self.assertEqual([q["index"] for q in self.result["phases"]["ir"]], list(range(len(texts))))
 
+    def test_virtual_machine_prints_expected_results(self):
+        execution = self.result["phases"]["execution"]
+        self.assertEqual(self.result["status"]["execution"], "ok")
+        self.assertEqual(execution["output"], ["Resiste el golpe", "Aria sigue en pie", "65", "50.0"])
+
     def test_assembly_uses_registers_without_spills(self):
         assembly = self.result["phases"]["assembly"]
         self.assertEqual(assembly["register_count"], 4)
@@ -121,6 +126,19 @@ class DomainExamplesTest(unittest.TestCase):
                 self.assertTrue(result["success"])
                 self.assertEqual(result["diagnostics"], [])
                 self.assertEqual(result["status"], {key: "ok" for key in PHASE_KEYS})
+
+    def test_programs_print_correct_results(self):
+        expected = {
+            "notas.rpg": ["Laura aprobó la materia", "3.8333333333333335"],
+            "banco.rpg": ["Retiro exitoso", "127600.0"],
+            "recursion.rpg": ["120", "55"],
+            "tienda.rpg": ["Factura de Audífonos", "144585.0"],
+            "salud.rpg": ["Peso normal", "Tiene fiebre", "100.4"],
+            "spill_registros.rpg": ["65835"],
+        }
+        for name, lines in expected.items():
+            with self.subTest(example=name):
+                self.assertEqual(compile_example(name)["phases"]["execution"]["output"], lines)
 
     def test_mixed_types_emit_explicit_coercion(self):
         texts = [quad["text"] for quad in compile_example("banco.rpg")["phases"]["ir"]]

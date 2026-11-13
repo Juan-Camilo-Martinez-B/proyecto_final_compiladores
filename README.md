@@ -9,7 +9,11 @@ fases vistas en el curso:
 
 ```
 Código fuente → Tokens → AST → Tabla de símbolos y tipos → Memoria → TAC (cuádruplas) → Pseudo-ensamblador
+                                                                          └→ Máquina virtual: ejecuta el TAC
 ```
+
+Además, una **máquina virtual** ejecuta el código intermedio y muestra lo que imprime el programa, lo que comprueba que
+la traducción es correcta.
 
 El **núcleo del proyecto es el análisis semántico**: una tabla de símbolos con ámbitos anidados en pila
 (global → función → bloque `if`) y un chequeador de tipos con inferencia y coerción. Es el árbitro que impide, por ejemplo,
@@ -50,9 +54,17 @@ python server.py
 
 ```bash
 python main.py examples/batalla_ok.rpg
-python main.py examples/batalla_ok.rpg --phase symbols     # tokens | ast | symbols | memory | ir | asm | all
+python main.py examples/batalla_ok.rpg --phase symbols     # tokens | ast | symbols | memory | ir | asm | run | all
 python main.py examples/spill_registros.rpg --registers 2  # CPU simulada con 2 registros
 python main.py examples/estres_semantico.rpg --json        # respuesta completa en JSON
+```
+
+**Ejecutar un programa** (solo muestra lo que imprime, como un programa compilado):
+
+```bash
+python main.py examples/recursion.rpg --run
+# 120
+# 55
 ```
 
 **Pruebas**:
@@ -140,12 +152,14 @@ cada una está en `docs/`.
 | Memoria | `memory_model.py` | Stack frente a heap, registros de activación, desplazamientos | Segmento global, un frame por función con dirección de retorno y FP, cadenas en el heap | 8 y 9 |
 | IR | `ir_generator.py` | Representación intermedia (M + N), código de tres direcciones, cuádruplas | Cuádruplas `(op, arg1, arg2, result)` con temporales, etiquetas y coerciones `int_to_float` explícitas | 7 |
 | Código objetivo | `codegen.py` | Selección de instrucciones, asignación de registros, *spill* | Pseudo-ensamblador con un banco limitado de registros; *spill* LRU a la pila y recarga | 10 |
+| Ejecución | `vm.py` | Máquina virtual, registros de activación en tiempo de ejecución, errores de ejecución | Intérprete de las cuádruplas con contador de programa, pila de frames y límites contra recursión infinita | 7 |
 
 Documentación por módulo:
 
 - [docs/lexer_parser.md](docs/lexer_parser.md): análisis léxico y sintáctico, CLI y servidor.
 - [docs/semantic.md](docs/semantic.md): tabla de símbolos, sistema de tipos, reglas S01 a S17 y modelo de memoria.
 - [docs/ir_codegen.md](docs/ir_codegen.md): código de tres direcciones y generación de código.
+- [docs/execution.md](docs/execution.md): máquina virtual que ejecuta el código intermedio.
 - [docs/frontend.md](docs/frontend.md): vista web.
 - [docs/PLAN_DE_TRABAJO.docx](docs/PLAN_DE_TRABAJO.docx): plan completo del proyecto y división del trabajo.
 
@@ -173,7 +187,7 @@ Los programas de `backend/examples/` son los casos de la sustentación. Sus resu
 
 | Programa | Qué demuestra | Resultado |
 |----------|---------------|-----------|
-| `batalla_ok.rpg` | Flujo correcto completo | Las 6 fases sin errores; coerción `int_to_float` en el TAC; 0 spills |
+| `batalla_ok.rpg` | Flujo correcto completo | Las 6 fases sin errores; coerción `int_to_float` en el TAC; 0 spills; al ejecutarse imprime `Resiste el golpe`, `Aria sigue en pie`, `65` y `50.0` |
 | `error_lexico.rpg` | Errores léxicos | 3 errores: `@` (línea 2), cadena sin cerrar (línea 3), `2poder` (línea 4) |
 | `error_sintactico.rpg` | Recuperación sintáctica | 3 errores (líneas 1, 2 y 5), sin errores en cascada |
 | `estres_semantico.rpg` | Prueba de estrés del semántico | 13 errores y 1 advertencia, uno por cada regla violada |
@@ -216,6 +230,8 @@ HTML, CSS y JavaScript con módulos ES, sin frameworks. La sirve el mismo `serve
 - **Pestañas por fase**: tokens con filtro, AST colapsable con el tipo inferido de cada expresión, ámbitos anidados con su
   tabla de símbolos y una traza que se puede reproducir paso a paso, memoria como pila de frames, cuádruplas y
   ensamblador con el estado de los registros en cada instrucción.
+- **Consola**: una terminal simulada con lo que imprime el programa al ejecutarse en la máquina virtual, o el error de
+  ejecución con la instrucción TAC donde ocurrió.
 - **Diagnósticos**: un clic lleva a la línea del error en el editor.
 
 ![Vista web: pseudo-ensamblador y estado de los registros](docs/img/web_ensamblador.png)
@@ -239,7 +255,8 @@ proyecto_final_compiladores/
 │   │   ├── semantic_analyzer.py fase 3
 │   │   ├── memory_model.py     fase 4
 │   │   ├── ir_generator.py     fase 5
-│   │   └── codegen.py          fase 6
+│   │   ├── codegen.py          fase 6
+│   │   └── vm.py               máquina virtual que ejecuta el TAC
 │   ├── examples/               programas .rpg de la sustentación
 │   └── tests/                  pruebas unitarias y de integración
 ├── frontend/                   vista web
@@ -272,14 +289,15 @@ cd backend
 python -m unittest discover -s tests -v
 ```
 
-133 pruebas, todas con la biblioteca estándar (`unittest`):
+157 pruebas, todas con la biblioteca estándar (`unittest`):
 
 | Archivo | Cubre |
 |---------|-------|
 | `test_lexer.py`, `test_parser.py` | Tokens, posiciones, precedencia, sentencias y recuperación de errores |
 | `test_symbol_table.py`, `test_type_checker.py`, `test_memory_model.py` | Visibilidad de ámbitos, reglas S01 a S17, coerción y diseño de memoria |
 | `test_ir_generator.py`, `test_codegen.py` | Cuádruplas, etiquetas, coerciones, selección de instrucciones y spill |
-| `test_cli.py`, `test_server.py` | Salida de la CLI y validaciones de la API |
+| `test_vm.py` | Ejecución: aritmética, división entera, llamadas, recursión, ámbitos y errores de ejecución |
+| `test_cli.py`, `test_server.py` | Salida de la CLI, modo `--run` y validaciones de la API |
 | `test_pipeline.py` | Integración de punta a punta: los 5 programas de la sustentación, entradas inusuales y mocks de la web |
 
 ## 8. Seguridad
@@ -287,7 +305,8 @@ python -m unittest discover -s tests -v
 - El servidor escucha solo en `127.0.0.1` y limita cada petición a 64 KB.
 - Se valida el JSON de entrada (`source` debe ser texto y `register_count` un entero entre 2 y 16).
 - Los archivos estáticos solo se sirven desde `frontend/`, con protección contra *path traversal*.
-- El código del usuario **nunca se ejecuta**: no se usa `eval` ni `exec`; el compilador solo lo analiza y lo traduce.
+- El código del usuario **nunca se ejecuta como Python**: no se usa `eval` ni `exec`. La máquina virtual solo interpreta
+  las operaciones conocidas del TAC, con un límite de 100 000 instrucciones y 1 000 llamadas anidadas.
 - La web inserta los datos con `textContent`, nunca con `innerHTML`, para evitar XSS.
 - No hay secretos ni dependencias externas.
 

@@ -9,6 +9,7 @@ class Phase(str, Enum):
     SEMANTIC = "semantico"
     IR = "ir"
     CODEGEN = "codegen"
+    RUNTIME = "ejecucion"
     INTERNAL = "interno"
 
 

@@ -60,6 +60,7 @@ python main.py examples/estres_semantico.rpg --json > ../frontend/mock/response_
 | **Memoria** | Segmento global como tabla, un bloque por cada frame de la pila (los slots de control en cursiva) y el heap de cadenas con direcciones. Una barra muestra el tamaño de cada slot |
 | **TAC** | Tabla de cuádruplas `(op, arg1, arg2, result)` y, al lado, el listado TAC |
 | **ASM** | Listado del ensamblador. Al pasar el cursor o hacer clic sobre una instrucción se ve el estado de R0..Rn en ese punto (`register_trace`), con los registros que cambiaron resaltados. Los spills van en rojo y las recargas en ámbar. Muestra contadores de registros, spills e instrucciones, y la tabla de spills |
+| **Consola** | Terminal simulada con lo que imprime el programa al ejecutarse en la máquina virtual de TAC (`backend/rpg_compiler/vm.py`). Si hay un error de ejecución, lo muestra en rojo con la instrucción TAC donde ocurrió. Solo se llena si el programa compila sin errores |
 | **Diagnósticos** | Icono por severidad, fase, `línea:columna` y mensaje. Un clic selecciona esa línea en el editor (`setSelectionRange`) |
 
 Si una fase no se ejecutó (por errores anteriores), su pestaña dice "Esta fase no se ejecutó." y,

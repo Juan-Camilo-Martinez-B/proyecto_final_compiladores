@@ -51,6 +51,17 @@ class CliTest(unittest.TestCase):
         self.assertIn("Frame de 'calcular_dano' · 28 bytes", text)
         self.assertIn("t1 = int_to_float base", text)
         self.assertIn("LOAD   R0, base", text)
+        self.assertIn("Programa terminado: 36 instrucciones TAC ejecutadas.", text)
+
+    def test_run_mode_prints_only_program_output(self):
+        code, output = run_cli(str(BACKEND / "examples" / "recursion.rpg"), "--run")
+        self.assertEqual(code, 0)
+        self.assertEqual(output.splitlines(), ["120", "55"])
+
+    def test_run_mode_refuses_programs_with_errors(self):
+        code, output = run_cli(str(BACKEND / "examples" / "error_lexico.rpg"), "--run")
+        self.assertEqual(code, 1)
+        self.assertIn("no compila", output)
 
 
 if __name__ == "__main__":

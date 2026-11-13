@@ -7,8 +7,12 @@ from .lexer import tokenize
 from .memory_model import build_memory_layout
 from .parser import Parser
 from .semantic_analyzer import SemanticAnalyzer
+from .vm import TacVM
 
-PHASE_KEYS = ("tokens", "ast", "symbols", "memory", "ir", "assembly")
+PHASE_KEYS = ("tokens", "ast", "symbols", "memory", "ir", "assembly", "execution")
+# La ejecucion no es parte de la compilacion: un error en tiempo de ejecucion
+# (por ejemplo, division entre cero) no convierte la compilacion en fallida.
+COMPILE_PHASES = PHASE_KEYS[:-1]
 
 
 class _PhaseRunner:
@@ -19,7 +23,8 @@ class _PhaseRunner:
         self.phases = {key: None for key in PHASE_KEYS}
         self.status = {key: "skipped" for key in PHASE_KEYS}
 
-    def run(self, key, phase, action, serialize):
+    def run(self, key, phase, action, serialize, failed=None):
+        """failed(value) permite marcar error en fases que no reportan diagnosticos."""
         try:
             value = action()
             self.phases[key] = serialize(value)
@@ -31,7 +36,8 @@ class _PhaseRunner:
             self.status[key] = "error"
             self._reporter.error(Phase.INTERNAL, f"Error interno en la fase '{key}': {exc}", 0, 0)
             return None
-        self.status[key] = "error" if self._reporter.has_errors(phase) else "ok"
+        has_failed = self._reporter.has_errors(phase) or (failed is not None and failed(value))
+        self.status[key] = "error" if has_failed else "ok"
         return value
 
     def can_continue(self, key) -> bool:
@@ -39,7 +45,7 @@ class _PhaseRunner:
 
     def response(self) -> dict:
         success = (not self._reporter.has_errors()
-                   and all(state == "ok" for state in self.status.values()))
+                   and all(self.status[key] == "ok" for key in COMPILE_PHASES))
         return {"success": success, "status": self.status,
                 "diagnostics": self._reporter.to_list(), "phases": self.phases}
 
@@ -78,4 +84,11 @@ def compile_source(source: str, register_count: int = 4) -> dict:
     runner.run("assembly", Phase.CODEGEN,
                lambda: CodeGenerator(register_count).generate(quads),
                lambda value: value.to_dict())
+
+    # La maquina virtual ejecuta el TAC; necesita la tabla de simbolos para
+    # distinguir variables locales de globales.
+    runner.run("execution", Phase.RUNTIME,
+               lambda: TacVM.from_symbols(semantic.symbols).run(quads),
+               lambda value: value.to_dict(),
+               failed=lambda value: value.error is not None)
     return runner.response()

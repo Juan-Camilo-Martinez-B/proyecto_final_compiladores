@@ -6,7 +6,8 @@
     "symbols": "ok",
     "memory": "ok",
     "ir": "ok",
-    "assembly": "ok"
+    "assembly": "ok",
+    "execution": "ok"
   },
   "diagnostics": [],
   "phases": {
@@ -3129,6 +3130,17 @@
         }
       ],
       "spills": []
+    },
+    "execution": {
+      "status": "finished",
+      "output": [
+        "Resiste el golpe",
+        "Aria sigue en pie",
+        "65",
+        "50.0"
+      ],
+      "steps": 36,
+      "error": null
     }
   }
 }
