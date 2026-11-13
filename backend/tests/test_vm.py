@@ -1,4 +1,12 @@
 """Pruebas de la maquina virtual que ejecuta el codigo de tres direcciones."""
+# ======================================================================
+# Pruebas de la maquina virtual (vm.py).
+# Compilan programas pequenos y verifican lo que imprimen: aritmetica, division
+# entera, llamadas, recursion y ambitos; y los errores de ejecucion (division
+# entre cero, recursion infinita, variable sin valor, limite de pasos).
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_vm -v
+# ======================================================================
 import unittest
 
 from rpg_compiler.ir_generator import Quadruple

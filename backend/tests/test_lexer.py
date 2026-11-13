@@ -1,3 +1,11 @@
+# ======================================================================
+# Pruebas de la FASE 1 (lexer.py).
+# Verifican tipos de token, posiciones (linea y columna), palabras reservadas,
+# la regla de la coincidencia mas larga (1.5 es FLOAT, -> es ARROW), que los
+# comentarios se ignoran y los 3 errores lexicos de examples/error_lexico.rpg.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_lexer -v
+# ======================================================================
 import unittest
 from pathlib import Path
 

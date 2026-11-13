@@ -1,4 +1,12 @@
 """Pruebas del sistema de tipos y de las reglas semanticas S01-S17."""
+# ======================================================================
+# Pruebas del analisis semantico (semantic_analyzer.py y type_system.py).
+# Construyen el AST a mano (sin depender del parser) y verifican cada regla
+# S01-S17, la coercion int -> float, la anotacion inferred_type y que no haya
+# errores en cascada. Incluyen los 13 errores y 1 advertencia del programa de estres.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_type_checker -v
+# ======================================================================
 import unittest
 from pathlib import Path
 

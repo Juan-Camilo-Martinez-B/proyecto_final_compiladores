@@ -1,3 +1,11 @@
+# ======================================================================
+# Pruebas del servidor web (server.py).
+# Levantan un servidor real en un puerto libre y le hacen peticiones HTTP:
+# contrato de /api/compile, validaciones (400, 413), /api/examples, archivos
+# estaticos y la proteccion contra path traversal.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_server -v
+# ======================================================================
 import json
 import threading
 import unittest

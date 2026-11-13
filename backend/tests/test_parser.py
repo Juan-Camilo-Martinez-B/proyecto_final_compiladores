@@ -1,3 +1,11 @@
+# ======================================================================
+# Pruebas de la FASE 2 (parser.py).
+# Verifican la forma del AST: precedencia (1 + 2 * 3), asociatividad por la
+# izquierda (10 - 3 - 2), sentencias y funciones; y la recuperacion de errores:
+# examples/error_sintactico.rpg debe dar exactamente 3 errores.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_parser -v
+# ======================================================================
 import unittest
 from pathlib import Path
 

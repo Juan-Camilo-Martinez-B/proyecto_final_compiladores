@@ -1,4 +1,11 @@
 """Pruebas del modelo de memoria: global, frames y heap."""
+# ======================================================================
+# Pruebas de la FASE 4 (memory_model.py).
+# Verifican los desplazamientos del segmento global, el tamano de los frames
+# (calcular_dano mide 28 bytes), los nombres repetidos y las direcciones del heap.
+#
+# Ejecutar (desde backend/): python -m unittest tests.test_memory_model -v
+# ======================================================================
 import unittest
 from pathlib import Path
 
